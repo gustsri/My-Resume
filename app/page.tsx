@@ -16,10 +16,13 @@ import {
   User,
   ExternalLink,
   ChevronDown,
+  ChevronUp,
   Wind,
   Radio
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring, useInView } from 'framer-motion';
+import Link from 'next/link';
+import { projects } from './projects/projectData';
 
 // --- Preloader Component ---
 const F1Preloader = ({ onComplete }: { onComplete: () => void }) => {
@@ -101,32 +104,6 @@ const App = () => {
     };
   }, []);
 
-  const projects = [
-    {
-      id: "01",
-      title: "AERODYNAMICS UI",
-      category: "UX/UI DESIGN",
-      description: "ระบบจัดการข้อมูลแบบ Real-time ที่ลดแรงต้านการใช้งานของผู้ใช้ด้วยการออกแบบ Interface ที่ลื่นไหลเหมือนรถแข่งที่ผ่านอุโมงค์ลม เน้นประสิทธิภาพสูงสุดในการเข้าถึงข้อมูลสำคัญในพริบตา",
-      tags: ["React", "Three.js", "Figma"],
-      img: "https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: "02",
-      title: "PIT-STOP E-COMMERCE",
-      category: "FULLSTACK",
-      description: "แพลตฟอร์มซื้อขายที่เน้นความเร็วในการชำระเงินเพียง 3 วินาที (The 3-Second Pit Stop) ลดขั้นตอนที่ซับซ้อนเพื่อให้ผู้ใช้ได้รับประสบการณ์การซื้อที่รวดเร็วและแม่นยำที่สุด",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
-      img: "https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: "03",
-      title: "TELEMETRY DASHBOARD",
-      category: "DATA VISUALIZATION",
-      description: "แดชบอร์ดแสดงผลข้อมูลเซนเซอร์ในรูปแบบกราฟที่อ่านง่ายที่สุด เพื่อการวิเคราะห์ข้อมูลในระดับวินาทีต่อวินาที ช่วยให้นักพัฒนาเห็นภาพรวมของระบบได้อย่างแม่นยำเหมือนวิศวกรข้างสนาม",
-      tags: ["Python", "D3.js", "IoT"],
-      img: "https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=800&auto=format&fit=crop"
-    }
-  ];
 
   const skills = [
     { name: "ENGINEERING", level: 95, icon: <Settings size={18} /> },
@@ -193,6 +170,23 @@ const App = () => {
         <div className="speed-line top-[40%] left-[-15%] w-[60%] animation-delay-1000"></div>
         <div className="speed-line top-[70%] left-[-20%] w-[30%] animation-delay-2000"></div>
       </div>
+
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-12 sm:bottom-14 right-4 sm:right-6 z-[99] w-12 h-12 sm:w-14 sm:h-14 bg-red-600 hover:bg-white hover:text-black text-white flex items-center justify-center transform -skew-x-12 shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all active:scale-90 group"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} className="transform skew-x-12 group-hover:animate-bounce" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Live Ticker Bar - Hidden/Smaller on small mobile */}
       <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-red-600 z-[100] flex items-center overflow-hidden border-t border-black/20">
@@ -341,7 +335,8 @@ const App = () => {
             >
               <div className="aspect-[3/4] overflow-hidden border-2 border-red-600 relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
+                  src="/Kanitphong.gif"
+                  // src="/Gemini_Generated_Image_mtdlv0mtdlv0mtdl.png"
                   alt="Profile"
                   className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
                 />
@@ -511,9 +506,11 @@ const App = () => {
                   ))}
                 </div>
                 <div className="pt-4">
-                  <button className="flex items-center gap-2 group/btn bg-white text-black px-6 sm:px-8 py-2.5 sm:py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-red-600 hover:text-white transition-all active:scale-95">
-                    View Project <ArrowUpRight size={18} />
-                  </button>
+                  <Link href={`/projects/${project.id}`}>
+                    <span className="flex items-center gap-2 group/btn bg-white text-black px-6 sm:px-8 py-2.5 sm:py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-red-600 hover:text-white transition-all active:scale-95 inline-flex">
+                      View Project <ArrowUpRight size={18} />
+                    </span>
+                  </Link>
                 </div>
               </motion.div>
             </div>

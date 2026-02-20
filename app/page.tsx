@@ -532,12 +532,14 @@ const App = () => {
             REACH THE<br />FINISH LINE
           </h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-            <button className="bg-black text-white px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 shadow-2xl active:scale-95">
-              Hire Me Now
-            </button>
-            <button className="border-4 border-black text-black px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-black hover:text-white transition-all transform -skew-x-12 active:scale-95">
+            <Link href="/contact">
+              <span className="bg-black text-white px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 shadow-2xl active:scale-95 inline-block">
+                Hire Me Now
+              </span>
+            </Link>
+            <a href="/Kanitphong Sricharoen Resume.pdf" download className="border-4 border-black text-black px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-black hover:text-white transition-all transform -skew-x-12 active:scale-95 inline-block text-center">
               Get Resume
-            </button>
+            </a>
           </div>
         </div>
       </section>

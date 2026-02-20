@@ -384,7 +384,7 @@ export default function ProjectDetail() {
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
-                            onClick={() => router.push("/#contact")}
+                            onClick={() => router.push("/contact")}
                             className="bg-black text-white px-10 py-5 text-base font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 shadow-2xl active:scale-95"
                         >
                             Contact Me

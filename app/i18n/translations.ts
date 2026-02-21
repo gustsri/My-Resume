@@ -30,34 +30,33 @@ export const translations = {
         // Profile Section
         profile: {
             sectionLabel: "Driver Profile & Bio",
-            heading: "OPTIMIZED FOR",
-            headingAccent: "MAXIMUM",
-            headingEnd: "PERFORMANCE.",
+            heading: "Kanitphong",
+            headingAccent: "Sricharoen",
+            // headingEnd: "PERFORMANCE.",
             bio: "Final-year Information Technology student at KMITL focusing on Software Development and System Analysis. Experienced in developing web applications from requirement analysis to full-stack implementation. Passionate about designing practical systems and database models (ERD) while continuously learning new technologies to build efficient solutions.",
-            currentTeam: "Current Team",
-            currentTeamValue: "Independent Contractor",
-            specialization: "Specialization",
-            specializationValue: "System Architecture",
-            baseOps: "Base Operations",
-            baseOpsValue: "Bangkok, Thailand",
+            currentTeam: "Education",
+            currentTeamValue: "King Mongkut’s Institute of Technology Ladkrabang (KMITL)",
+            specialization: "Bachelor of Science",
+            specializationValue: "Information Technology (Software Development)",
+            baseOps: "GPA",
+            baseOpsValue: "GPA: 2.93 | Expected Graduation: 2026",
         },
 
         // Skills Section
         skills: {
-            sectionLabel: "Technical Performance Calibration",
-            heading: "DRIVER_SKILLS",
-            systemCheck: "SYSTEM CHECK: COMPLETED",
-            precisionScore: "Precision Score",
-            engineering: "ENGINEERING",
-            reactionTime: "REACTION TIME",
-            strategy: "STRATEGY",
-            computing: "COMPUTING",
+            sectionLabel: "Technical Specs",
+            heading: "Skills",
+            systemCheck: "System Check",
+            frontend: "Frontend",
+            backend: "Backend",
+            database: "Database",
+            tools: "Tools",
         },
 
         // Garage Section
         garage: {
-            sectionLabel: "Pit Stop / Stall Records",
-            heading: "THE_GARAGE",
+            sectionLabel: "Pit Stop Records",
+            heading: "Projects",
             viewProject: "View Project",
         },
 
@@ -71,8 +70,8 @@ export const translations = {
 
         // Footer
         footer: {
-            name: "THANAKORN_2024",
-            version: "VER: 1.1.2 // STATUS: OPTIMIZED",
+            name: "Kanitphong 2026",
+            version: "VER: 1.0.0 // STATUS: OPTIMIZED",
         },
 
         // Ticker Bar
@@ -137,7 +136,7 @@ export const translations = {
 
         // Preloader
         preloader: {
-            warming: "กำลังอุ่นเครื่อง...",
+            warming: "WARMING UP ENGINES...",
         },
 
         // Hero Section
@@ -157,7 +156,7 @@ export const translations = {
         // Profile Section
         profile: {
             sectionLabel: "โปรไฟล์ & ประวัติย่อ",
-            heading: "OPTIMIZED FOR",
+            heading: "Kanitphong",
             headingAccent: "MAXIMUM",
             headingEnd: "PERFORMANCE.",
             bio: "นักศึกษาปีสุดท้าย สาขาเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง เน้นด้าน Software Development และ System Analysis มีประสบการณ์ในการพัฒนา Web Application ตั้งแต่การวิเคราะห์ความต้องการจนถึงการ Implement ทั้ง Fullstack หลงใหลในการออกแบบระบบที่ใช้งานได้จริงและ Database Model (ERD) พร้อมเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอ",
@@ -171,14 +170,13 @@ export const translations = {
 
         // Skills Section
         skills: {
-            sectionLabel: "การสอบเทียบประสิทธิภาพทางเทคนิค",
-            heading: "DRIVER_SKILLS",
-            systemCheck: "ตรวจสอบระบบ: เสร็จสมบูรณ์",
-            precisionScore: "คะแนนความแม่นยำ",
-            engineering: "วิศวกรรม",
-            reactionTime: "เวลาตอบสนอง",
-            strategy: "กลยุทธ์",
-            computing: "การประมวลผล",
+            sectionLabel: "การตั้งค่าเครื่องยนต์ & การแมปปิ้ง",
+            heading: "Technical_Specs",
+            systemCheck: "ข้อมูลเทเลเมตรี: ซิงค์แล้ว",
+            frontend: "ฟรอนต์เอนด์",
+            backend: "แบ็กเอนด์",
+            database: "ฐานข้อมูล",
+            tools: "เครื่องมือพัฒนา",
         },
 
         // Garage Section

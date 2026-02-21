@@ -50,7 +50,7 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                         </Reveal>
                         <Reveal delay={0.3}>
                             <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-tight text-center md:text-left text-gray-900">
-                                {t("profile.heading")} <span className="text-rose-500 text-shadow-rose">{t("profile.headingAccent")}</span> {t("profile.headingEnd")}
+                                {t("profile.heading")} <span className="text-rose-500 text-shadow-rose">{t("profile.headingAccent")}</span>
                             </h2>
                         </Reveal>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

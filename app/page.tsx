@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import {
-  Settings,
-  Zap,
-  Activity,
-  Cpu,
+  Monitor,
+  Server,
+  Database,
+  Wrench,
   ChevronUp,
   Menu,
   X,
@@ -47,11 +47,42 @@ const App = () => {
     };
   }, []);
 
-  const skills = [
-    { name: t("skills.engineering"), level: 95, icon: <Settings size={18} /> },
-    { name: t("skills.reactionTime"), level: 90, icon: <Zap size={18} /> },
-    { name: t("skills.strategy"), level: 85, icon: <Activity size={18} /> },
-    { name: t("skills.computing"), level: 92, icon: <Cpu size={18} /> },
+  const skillGroups = [
+    {
+      id: "SYS_01",
+      category: t("skills.frontend"),
+      icon: <Monitor size={20} />,
+      items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
+      performance: "95%",
+    },
+    {
+      id: "SYS_02",
+      category: t("skills.backend"),
+      icon: <Server size={20} />,
+      items: ["Node.js", "Python", "PHP", "REST API", "Prisma"],
+      performance: "90%",
+    },
+    {
+      id: "SYS_03",
+      category: t("skills.database"),
+      icon: <Database size={20} />,
+      items: ["PostgreSQL", "MySQL", "NoSQL", "SQL"],
+      performance: "88%",
+    },
+    {
+      id: "SYS_04",
+      category: t("skills.Systems-Analysis"),
+      icon: <Database size={20} />,
+      items: ["Requirement Analysis", "ERD", "UML", "Workflow Design", "Requirement gathering"],
+      performance: "88%",
+    },
+    {
+      id: "SYS_05",
+      category: t("skills.tools"),
+      icon: <Wrench size={20} />,
+      items: ["Git", "Docker", "Postman", "VS Code", "AWS", "Antigravity"],
+      performance: "92%",
+    },
   ];
 
   const scrollTo = (id: string) => {
@@ -90,9 +121,9 @@ const App = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden md:cursor-none pb-6 sm:pb-8">
 
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {loading && <F1Preloader onComplete={() => setLoading(false)} />}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Custom Cursor - Hidden on mobile */}
       <motion.div
@@ -160,8 +191,8 @@ const App = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">F1</div>
-            <span className="font-black tracking-tighter text-xl italic">RACING_DEVEL</span>
+            <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">//</div>
+            <span className="font-black tracking-tighter text-xl italic">My Resume</span>
           </motion.div>
 
           <div className="hidden md:flex gap-8 items-center">
@@ -247,7 +278,7 @@ const App = () => {
       <ProfileSection scrollToNext={scrollToNext} />
 
       {/* Skills Section */}
-      <SkillsSection skills={skills} scrollToNext={scrollToNext} />
+      <SkillsSection skillGroups={skillGroups} scrollToNext={scrollToNext} />
 
       {/* The Garage (Alternating) */}
       <GarageSection scrollToNext={scrollToNext} />

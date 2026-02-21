@@ -19,12 +19,14 @@ import GarageSection from './components/GarageSection';
 import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 import PageStyles from './components/PageStyles';
+import { useLanguage } from './context/LanguageContext';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { locale, setLocale, t } = useLanguage();
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -46,10 +48,10 @@ const App = () => {
   }, []);
 
   const skills = [
-    { name: "ENGINEERING", level: 95, icon: <Settings size={18} /> },
-    { name: "REACTION TIME", level: 90, icon: <Zap size={18} /> },
-    { name: "STRATEGY", level: 85, icon: <Activity size={18} /> },
-    { name: "COMPUTING", level: 92, icon: <Cpu size={18} /> },
+    { name: t("skills.engineering"), level: 95, icon: <Settings size={18} /> },
+    { name: t("skills.reactionTime"), level: 90, icon: <Zap size={18} /> },
+    { name: t("skills.strategy"), level: 85, icon: <Activity size={18} /> },
+    { name: t("skills.computing"), level: 92, icon: <Cpu size={18} /> },
   ];
 
   const scrollTo = (id: string) => {
@@ -77,6 +79,13 @@ const App = () => {
       }
     }
   };
+
+  const navItems = [
+    { id: "profile", label: t("nav.profile") },
+    { id: "skills", label: t("nav.skills") },
+    { id: "garage", label: t("nav.garage") },
+    { id: "contact", label: t("nav.contact") },
+  ];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden md:cursor-none pb-6 sm:pb-8">
@@ -132,11 +141,11 @@ const App = () => {
         <div className="flex gap-24 whitespace-nowrap animate-ticker py-1 px-4">
           {[1, 2, 3].map(i => (
             <div key={i} className="flex gap-12 font-black italic text-[8px] sm:text-[10px] items-center uppercase tracking-tighter">
-              <span>LIVE TELEMETRY: ACTIVE</span>
+              <span>{t("ticker.telemetry")}</span>
               <span>GPS_POS: {mousePos.x}, {mousePos.y}</span>
-              <span>SYSTEM_STATUS: NO_ERRORS</span>
-              <span>ENGINE_TEMP: OPTIMIZED</span>
-              <span>LAP_TIME: 1:12.332</span>
+              <span>{t("ticker.systemStatus")}</span>
+              <span>{t("ticker.engineTemp")}</span>
+              <span>{t("ticker.lapTime")}</span>
             </div>
           ))}
         </div>
@@ -155,20 +164,43 @@ const App = () => {
             <span className="font-black tracking-tighter text-xl italic">RACING_DEVEL</span>
           </motion.div>
 
-          <div className="hidden md:flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase">
-            {["profile", "skills", "garage", "contact"].map((item, idx) => (
-              <motion.button
-                key={item}
-                onClick={() => scrollTo(item)}
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.1 * idx }}
-                className="hover:text-rose-500 transition-colors relative group uppercase font-bold"
+          <div className="hidden md:flex gap-8 items-center">
+            <div className="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase">
+              {navItems.map((item, idx) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 * idx }}
+                  className="hover:text-rose-500 transition-colors relative group uppercase font-bold"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-rose-500 transition-all group-hover:w-full"></span>
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Language Toggle */}
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden"
+            >
+              <button
+                onClick={() => setLocale("th")}
+                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
               >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-rose-500 transition-all group-hover:w-full"></span>
-              </motion.button>
-            ))}
+                TH
+              </button>
+              <button
+                onClick={() => setLocale("en")}
+                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+              >
+                EN
+              </button>
+            </motion.div>
           </div>
 
           <button className="md:hidden z-[120]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -186,8 +218,23 @@ const App = () => {
             exit={{ opacity: 0, y: '-100%' }}
             className="fixed inset-0 bg-black z-[110] flex flex-col items-center justify-center gap-8 text-4xl font-black italic uppercase tracking-tighter"
           >
-            {["profile", "skills", "garage", "contact"].map((item) => (
-              <button key={item} onClick={() => scrollTo(item)} className="hover:text-rose-500 active:text-rose-600">{item}</button>
+            {/* Mobile Language Toggle */}
+            <div className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden mb-4">
+              <button
+                onClick={() => setLocale("th")}
+                className={`px-6 py-2 text-sm font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+              >
+                TH
+              </button>
+              <button
+                onClick={() => setLocale("en")}
+                className={`px-6 py-2 text-sm font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+              >
+                EN
+              </button>
+            </div>
+            {navItems.map((item) => (
+              <button key={item.id} onClick={() => scrollTo(item.id)} className="hover:text-rose-500 active:text-rose-600">{item.label}</button>
             ))}
           </motion.div>
         )}

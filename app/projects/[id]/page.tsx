@@ -4,8 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import {
     ArrowLeft,
     ChevronUp,
-    ArrowUpRight,
-    Activity,
     Zap,
     Gauge,
     Radio,
@@ -14,13 +12,15 @@ import {
     Cpu,
 } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { getProjectById, type Project } from "../projectData";
+import { getProjectById } from "../projectData";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function ProjectDetail() {
     const params = useParams();
     const router = useRouter();
     const id = params.id as string;
     const project = getProjectById(id);
+    const { locale, setLocale, t } = useLanguage();
 
     const [scrolled, setScrolled] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -49,15 +49,15 @@ export default function ProjectDetail() {
         return (
             <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center">
                 <div className="text-center space-y-6">
-                    <h1 className="text-6xl font-black italic text-rose-500">DNF</h1>
+                    <h1 className="text-6xl font-black italic text-rose-500">{t("projectDetail.dnf")}</h1>
                     <p className="text-zinc-400 text-lg uppercase tracking-widest font-bold">
-                        Project not found
+                        {t("projectDetail.notFound")}
                     </p>
                     <button
                         onClick={() => router.push("/#garage")}
                         className="bg-rose-500 text-white px-8 py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-white hover:text-black transition-all"
                     >
-                        Back to Garage
+                        {t("projectDetail.backToGarage")}
                     </button>
                 </div>
             </div>
@@ -111,23 +111,41 @@ export default function ProjectDetail() {
                             <ArrowLeft size={20} className="transform skew-x-12" />
                         </div>
                         <span className="text-xs font-black tracking-[0.2em] uppercase hidden sm:inline opacity-60 group-hover:opacity-100 transition-opacity">
-                            Back to Garage
+                            {t("projectDetail.backToGarage")}
                         </span>
                     </motion.button>
 
-                    <motion.div
-                        initial={{ x: 30, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        className="flex items-center gap-2 cursor-pointer"
-                        onClick={() => router.push("/")}
-                    >
-                        <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
-                            F1
+                    <div className="flex items-center gap-4">
+                        {/* Language Toggle */}
+                        <div className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden">
+                            <button
+                                onClick={() => setLocale("th")}
+                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                            >
+                                TH
+                            </button>
+                            <button
+                                onClick={() => setLocale("en")}
+                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                            >
+                                EN
+                            </button>
                         </div>
-                        <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
-                            RACING_DEVEL
-                        </span>
-                    </motion.div>
+
+                        <motion.div
+                            initial={{ x: 30, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            className="flex items-center gap-2 cursor-pointer"
+                            onClick={() => router.push("/")}
+                        >
+                            <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
+                                F1
+                            </div>
+                            <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
+                                RACING_DEVEL
+                            </span>
+                        </motion.div>
+                    </div>
                 </div>
             </nav>
 
@@ -186,9 +204,9 @@ export default function ProjectDetail() {
                         className="flex flex-wrap gap-6 sm:gap-10 mb-12"
                     >
                         {[
-                            { label: "Role", value: project.role },
-                            { label: "Duration", value: project.duration },
-                            { label: "Status", value: project.status },
+                            { label: t("projectDetail.roleLabel"), value: project.role[locale] },
+                            { label: t("projectDetail.durationLabel"), value: project.duration[locale] },
+                            { label: t("projectDetail.statusLabel"), value: project.status },
                         ].map((meta, i) => (
                             <div
                                 key={i}
@@ -248,12 +266,12 @@ export default function ProjectDetail() {
                             <div className="flex items-center gap-3 mb-4 opacity-50">
                                 <Radio size={14} />
                                 <span className="text-[10px] font-bold tracking-[0.3em] uppercase italic">
-                                    Race Brief
+                                    {t("projectDetail.raceBrief")}
                                 </span>
                             </div>
                             <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter">
-                                PROJECT<br />
-                                <span className="text-rose-500">OVERVIEW</span>
+                                {t("projectDetail.projectOverview")}<br />
+                                <span className="text-rose-500">{t("projectDetail.overviewAccent")}</span>
                             </h2>
                         </motion.div>
                     </div>
@@ -264,7 +282,7 @@ export default function ProjectDetail() {
                             viewport={{ once: true }}
                             className="text-gray-300 text-lg sm:text-xl leading-relaxed font-medium"
                         >
-                            {project.longDescription}
+                            {project.longDescription[locale]}
                         </motion.p>
                     </div>
                 </div>
@@ -280,15 +298,15 @@ export default function ProjectDetail() {
                         className="mb-12 sm:mb-16"
                     >
                         <p className="text-rose-500 font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                            <Gauge size={14} /> Performance Specs
+                            <Gauge size={14} /> {t("projectDetail.performanceSpecs")}
                         </p>
                         <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter">
-                            KEY_FEATURES
+                            {t("projectDetail.keyFeatures")}
                         </h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {project.features.map((feature, index) => (
+                        {project.features[locale].map((feature: string, index: number) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
@@ -332,10 +350,10 @@ export default function ProjectDetail() {
                         className="mb-12 sm:mb-16"
                     >
                         <p className="text-rose-500 font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                            <Cpu size={14} /> Engine Components
+                            <Cpu size={14} /> {t("projectDetail.engineComponents")}
                         </p>
                         <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter">
-                            TECH_STACK
+                            {t("projectDetail.techStack")}
                         </h2>
                     </motion.div>
 
@@ -361,7 +379,7 @@ export default function ProjectDetail() {
                                 </div>
                                 <div className="hidden sm:block w-[1px] h-8 bg-white/10"></div>
                                 <p className="text-gray-400 text-sm sm:text-base font-medium">
-                                    {tech.description}
+                                    {tech.description[locale]}
                                 </p>
                             </motion.div>
                         ))}
@@ -380,20 +398,20 @@ export default function ProjectDetail() {
                         <Flag className="mx-auto mb-6 w-14 h-14 sm:w-16 sm:h-16" />
                     </motion.div>
                     <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter mb-8 leading-none">
-                        INTERESTED IN<br />THIS PROJECT?
+                        {t("projectDetail.interestedHeading1")}<br />{t("projectDetail.interestedHeading2")}
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
                             onClick={() => router.push("/contact")}
                             className="bg-rose-500 text-white px-10 py-5 text-base font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 shadow-2xl active:scale-95"
                         >
-                            Contact Me
+                            {t("projectDetail.contactMe")}
                         </button>
                         <button
                             onClick={() => router.push("/#garage")}
                             className="border-4 border-white text-white px-10 py-5 text-base font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 active:scale-95"
                         >
-                            View Other Projects
+                            {t("projectDetail.viewOther")}
                         </button>
                     </div>
                 </div>

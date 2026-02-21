@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const F1Preloader = ({ onComplete }: { onComplete: () => void }) => {
     const [lights, setLights] = useState(0);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -28,7 +30,7 @@ const F1Preloader = ({ onComplete }: { onComplete: () => void }) => {
                     </div>
                 ))}
             </div>
-            <p className="font-black italic tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-sm animate-pulse">WARMING UP ENGINES...</p>
+            <p className="font-black italic tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-sm animate-pulse">{t("preloader.warming")}</p>
         </div>
     );
 };

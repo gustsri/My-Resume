@@ -3,12 +3,21 @@ import React from 'react';
 import { User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProfileSectionProps {
     scrollToNext: (e: React.MouseEvent, currentId: string) => void;
 }
 
 const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
+    const { t } = useLanguage();
+
+    const infoItems = [
+        { label: t("profile.currentTeam"), value: t("profile.currentTeamValue") },
+        { label: t("profile.specialization"), value: t("profile.specializationValue") },
+        { label: t("profile.baseOps"), value: t("profile.baseOpsValue") },
+    ];
+
     return (
         <section id="profile" className="py-20 sm:py-24 px-6 border-y border-gray-200 bg-white cursor-pointer" onClick={(e) => scrollToNext(e, 'profile')}>
             <div className="max-w-7xl mx-auto">
@@ -22,6 +31,7 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                         <div className="aspect-[3/4] overflow-hidden border-2 border-rose-500 relative group">
                             <img
                                 src="/Kanitphong.gif"
+                                // src="/GUS.png"
                                 // src="/Gemini_Generated_Image_mtdlv0mtdlv0mtdl.png"
                                 alt="Profile"
                                 className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
@@ -35,31 +45,29 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                         <Reveal>
                             <div className="flex items-center gap-4 opacity-50">
                                 <User size={16} className="text-gray-500" />
-                                <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase italic text-gray-500">Driver Profile & Bio</span>
+                                <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase italic text-gray-500">{t("profile.sectionLabel")}</span>
                             </div>
                         </Reveal>
                         <Reveal delay={0.3}>
                             <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-tight text-center md:text-left text-gray-900">
-                                OPTIMIZED FOR <span className="text-rose-500 text-shadow-rose">MAXIMUM</span> PERFORMANCE.
+                                {t("profile.heading")} <span className="text-rose-500 text-shadow-rose">{t("profile.headingAccent")}</span> {t("profile.headingEnd")}
                             </h2>
                         </Reveal>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             <div className="space-y-4">
                                 <Reveal delay={0.4}>
                                     <p className="text-gray-600 font-medium text-base sm:text-lg leading-relaxed">
-                                        Final-year Information Technology student at KMITL focusing on Software Development and System Analysis.
-                                        Experienced in developing web applications from requirement analysis to full-stack implementation.
-                                        Passionate about designing practical systems and database models (ERD) while continuously learning new technologies to build efficient solutions.
+                                        {t("profile.bio")}
                                     </p>
                                 </Reveal>
                             </div>
                             <div className="border-l-2 md:border-l border-rose-500/30 md:border-gray-200 pl-6 md:pl-8 space-y-6">
-                                {["Current Team", "Specialization", "Base Operations"].map((label, i) => (
-                                    <Reveal key={label} delay={0.5 + (i * 0.1)}>
+                                {infoItems.map((item, i) => (
+                                    <Reveal key={item.label} delay={0.5 + (i * 0.1)}>
                                         <div>
-                                            <h4 className="text-rose-500 font-bold uppercase text-[10px] sm:text-xs tracking-widest mb-1 italic">{label}</h4>
+                                            <h4 className="text-rose-500 font-bold uppercase text-[10px] sm:text-xs tracking-widest mb-1 italic">{item.label}</h4>
                                             <p className="text-lg sm:text-xl font-bold italic uppercase tracking-tight text-gray-900">
-                                                {i === 0 ? "Independent Contractor" : i === 1 ? "System Architecture" : "Bangkok, Thailand"}
+                                                {item.value}
                                             </p>
                                         </div>
                                     </Reveal>

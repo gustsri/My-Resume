@@ -15,62 +15,13 @@ import {
     MessageCircle,
 } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
-
-const contactChannels = [
-    {
-        name: "GITHUB",
-        icon: <Github size={28} />,
-        value: "github.com/yourusername",
-        href: "https://github.com/yourusername",
-        color: "hover:border-white hover:bg-white/5",
-        description: "Source Code & Open Source Projects",
-    },
-    {
-        name: "LINKEDIN",
-        icon: <Linkedin size={28} />,
-        value: "linkedin.com/in/yourusername",
-        href: "https://linkedin.com/in/yourusername",
-        color: "hover:border-blue-500 hover:bg-blue-500/5",
-        description: "Professional Network & Experience",
-    },
-    {
-        name: "FACEBOOK",
-        icon: <Facebook size={28} />,
-        value: "facebook.com/yourusername",
-        href: "https://facebook.com/yourusername",
-        color: "hover:border-blue-600 hover:bg-blue-600/5",
-        description: "Social & Community",
-    },
-    {
-        name: "EMAIL",
-        icon: <Mail size={28} />,
-        value: "your.email@example.com",
-        href: "mailto:your.email@example.com",
-        color: "hover:border-rose-500 hover:bg-rose-500/5",
-        description: "Direct Communication Channel",
-    },
-    {
-        name: "PHONE",
-        icon: <Phone size={28} />,
-        value: "+66 XX-XXX-XXXX",
-        href: "tel:+66XXXXXXXX",
-        color: "hover:border-green-500 hover:bg-green-500/5",
-        description: "Voice Communication Line",
-    },
-    {
-        name: "LINE",
-        icon: <MessageCircle size={28} />,
-        value: "@your-line-id",
-        href: "https://line.me/ti/p/your-line-id",
-        color: "hover:border-green-400 hover:bg-green-400/5",
-        description: "Instant Messaging",
-    },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function ContactPage() {
     const router = useRouter();
     const [scrolled, setScrolled] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const { locale, setLocale, t } = useLanguage();
 
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
@@ -91,6 +42,51 @@ export default function ContactPage() {
             window.removeEventListener("mousemove", handleMouseMove);
         };
     }, []);
+
+    const contactChannels = [
+        {
+            nameKey: "contactPage.github",
+            icon: <Github size={28} />,
+            value: "github.com/yourusername",
+            href: "https://github.com/yourusername",
+            color: "hover:border-white hover:bg-white/5",
+        },
+        {
+            nameKey: "contactPage.linkedin",
+            icon: <Linkedin size={28} />,
+            value: "linkedin.com/in/yourusername",
+            href: "https://linkedin.com/in/yourusername",
+            color: "hover:border-blue-500 hover:bg-blue-500/5",
+        },
+        {
+            nameKey: "contactPage.facebook",
+            icon: <Facebook size={28} />,
+            value: "facebook.com/yourusername",
+            href: "https://facebook.com/yourusername",
+            color: "hover:border-blue-600 hover:bg-blue-600/5",
+        },
+        {
+            nameKey: "contactPage.email",
+            icon: <Mail size={28} />,
+            value: "your.email@example.com",
+            href: "mailto:your.email@example.com",
+            color: "hover:border-rose-500 hover:bg-rose-500/5",
+        },
+        {
+            nameKey: "contactPage.phone",
+            icon: <Phone size={28} />,
+            value: "+66 XX-XXX-XXXX",
+            href: "tel:+66XXXXXXXX",
+            color: "hover:border-green-500 hover:bg-green-500/5",
+        },
+        {
+            nameKey: "contactPage.line",
+            icon: <MessageCircle size={28} />,
+            value: "@your-line-id",
+            href: "https://line.me/ti/p/your-line-id",
+            color: "hover:border-green-400 hover:bg-green-400/5",
+        },
+    ];
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden md:cursor-none">
@@ -132,23 +128,41 @@ export default function ContactPage() {
                             <ArrowLeft size={20} className="transform skew-x-12" />
                         </div>
                         <span className="text-xs font-black tracking-[0.2em] uppercase hidden sm:inline opacity-60 group-hover:opacity-100 transition-opacity">
-                            Back to Home
+                            {t("contactPage.backToHome")}
                         </span>
                     </motion.button>
 
-                    <motion.div
-                        initial={{ x: 30, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        className="flex items-center gap-2 cursor-pointer"
-                        onClick={() => router.push("/")}
-                    >
-                        <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
-                            F1
+                    <div className="flex items-center gap-4">
+                        {/* Language Toggle */}
+                        <div className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden">
+                            <button
+                                onClick={() => setLocale("th")}
+                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                            >
+                                TH
+                            </button>
+                            <button
+                                onClick={() => setLocale("en")}
+                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                            >
+                                EN
+                            </button>
                         </div>
-                        <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
-                            RACING_DEVEL
-                        </span>
-                    </motion.div>
+
+                        <motion.div
+                            initial={{ x: 30, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            className="flex items-center gap-2 cursor-pointer"
+                            onClick={() => router.push("/")}
+                        >
+                            <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
+                                F1
+                            </div>
+                            <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
+                                RACING_DEVEL
+                            </span>
+                        </motion.div>
+                    </div>
                 </div>
             </nav>
 
@@ -172,7 +186,7 @@ export default function ContactPage() {
                     >
                         <p className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] font-bold uppercase flex items-center gap-2">
                             <Radio size={10} className="animate-pulse text-rose-500" />{" "}
-                            Communication channels online
+                            {t("contactPage.badge")}
                         </p>
                     </motion.div>
 
@@ -182,7 +196,7 @@ export default function ContactPage() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black italic uppercase tracking-tighter leading-none mb-4"
                     >
-                        HIRE <span className="text-rose-500">ME</span>
+                        {t("contactPage.heading")} <span className="text-rose-500">{t("contactPage.headingAccent")}</span>
                     </motion.h1>
 
                     <motion.p
@@ -191,7 +205,7 @@ export default function ContactPage() {
                         transition={{ delay: 0.2 }}
                         className="text-gray-400 text-base sm:text-lg font-medium max-w-2xl"
                     >
-                        เลือกช่องทางที่สะดวกที่สุดเพื่อติดต่อผม — ทุกสายการสื่อสารพร้อมเชื่อมต่อ
+                        {t("contactPage.description")}
                     </motion.p>
                 </div>
             </section>
@@ -222,10 +236,10 @@ export default function ContactPage() {
                                 </div>
 
                                 <h3 className="font-black text-xl sm:text-2xl italic uppercase tracking-tighter mb-2">
-                                    {channel.name}
+                                    {t(`${channel.nameKey}.name`)}
                                 </h3>
                                 <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-4 italic">
-                                    {channel.description}
+                                    {t(`${channel.nameKey}.description`)}
                                 </p>
                                 <div className="border-t border-white/10 pt-4">
                                     <p className="text-sm sm:text-base text-gray-300 font-mono truncate">
@@ -253,17 +267,17 @@ export default function ContactPage() {
                     >
                         <Flag className="mx-auto mb-6 w-12 h-12 text-rose-500" />
                         <h2 className="text-3xl sm:text-5xl font-black italic uppercase tracking-tighter mb-4">
-                            GET MY <span className="text-rose-500">RESUME</span>
+                            {t("contactPage.resumeSection.heading")} <span className="text-rose-500">{t("contactPage.resumeSection.headingAccent")}</span>
                         </h2>
                         <p className="text-gray-400 text-sm sm:text-base mb-8 max-w-lg mx-auto">
-                            ดาวน์โหลด Resume ฉบับเต็มเพื่อดูประสบการณ์ ทักษะ และผลงานทั้งหมดของผม
+                            {t("contactPage.resumeSection.description")}
                         </p>
                         <a
                             href="/Kanitphong Sricharoen Resume.pdf"
                             download
                             className="inline-flex items-center gap-3 bg-rose-500 text-white px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 shadow-2xl active:scale-95"
                         >
-                            <span className="transform skew-x-12">Download Resume (PDF)</span>
+                            <span className="transform skew-x-12">{t("contactPage.resumeSection.downloadBtn")}</span>
                         </a>
                         <div className="absolute -right-8 -bottom-8 opacity-5">
                             <Flag size={200} />

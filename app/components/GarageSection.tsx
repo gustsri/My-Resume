@@ -5,19 +5,22 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { projects } from '../projects/projectData';
 import Reveal from './Reveal';
+import { useLanguage } from '../context/LanguageContext';
 
 interface GarageSectionProps {
     scrollToNext: (e: React.MouseEvent, currentId: string) => void;
 }
 
 const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
+    const { locale, t } = useLanguage();
+
     return (
         <section id="garage" className="py-20 sm:py-24 px-6 bg-white overflow-hidden cursor-pointer" onClick={(e) => scrollToNext(e, 'garage')}>
             <div className="max-w-7xl mx-auto">
                 <Reveal>
                     <div className="mb-16 sm:mb-20">
-                        <p className="text-rose-500 font-bold tracking-[0.2em] uppercase text-[10px] mb-2 italic">Pit Stop / Stall Records</p>
-                        <h2 className="text-4xl sm:text-6xl font-black italic uppercase tracking-tighter text-gray-900">THE_GARAGE</h2>
+                        <p className="text-rose-500 font-bold tracking-[0.2em] uppercase text-[10px] mb-2 italic">{t("garage.sectionLabel")}</p>
+                        <h2 className="text-4xl sm:text-6xl font-black italic uppercase tracking-tighter text-gray-900">{t("garage.heading")}</h2>
                     </div>
                 </Reveal>
 
@@ -65,7 +68,7 @@ const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
                                     {project.title}
                                 </h3>
                                 <p className="text-gray-600 text-base sm:text-lg font-medium leading-relaxed italic">
-                                    &quot;{project.description}&quot;
+                                    &quot;{project.description[locale]}&quot;
                                 </p>
                                 <div className="flex flex-wrap gap-2 pt-2">
                                     {project.tags.map((tag, i) => (
@@ -75,7 +78,7 @@ const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
                                 <div className="pt-4">
                                     <Link href={`/projects/${project.id}`}>
                                         <span className="flex items-center gap-2 group/btn bg-gray-900 text-white px-6 sm:px-8 py-2.5 sm:py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-rose-500 hover:text-white transition-all active:scale-95 inline-flex">
-                                            View Project <ArrowUpRight size={18} />
+                                            {t("garage.viewProject")} <ArrowUpRight size={18} />
                                         </span>
                                     </Link>
                                 </div>

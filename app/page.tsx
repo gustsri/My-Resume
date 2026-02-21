@@ -5,6 +5,7 @@ import {
   Server,
   Database,
   Wrench,
+  LayoutDashboard,
   ChevronUp,
   Menu,
   X,
@@ -71,8 +72,8 @@ const App = () => {
     },
     {
       id: "SYS_04",
-      category: t("skills.Systems-Analysis"),
-      icon: <Database size={20} />,
+      category: t("skills.systems"),
+      icon: <LayoutDashboard size={20} />,
       items: ["Requirement Analysis", "ERD", "UML", "Workflow Design", "Requirement gathering"],
       performance: "88%",
     },

@@ -21,70 +21,73 @@ const SkillsSection = ({ skillGroups, scrollToNext }: SkillsSectionProps) => {
     const { t } = useLanguage();
 
     return (
-        <section id="skills" className="bg-[#0a122c] py-20 sm:py-24 border-b border-white/5 cursor-pointer" onClick={(e) => scrollToNext(e, 'skills')}>
+        <section id="skills" className="bg-[#040a18] py-20 sm:py-28 border-b border-white/5 cursor-pointer" onClick={(e) => scrollToNext(e, 'skills')}>
             <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-20 gap-6">
-                    <div>
-                        <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                            <Gauge size={14} className="text-[#ffc906]" /> {t("skills.sectionLabel")}
-                        </p>
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black italic uppercase tracking-tighter text-white">{t("skills.heading")}</h2>
-                    </div>
-                    <div className="font-mono text-[10px] text-zinc-400 hidden sm:block uppercase">
-                        // {t("skills.systemCheck")}
-                    </div>
+
+                {/* Header */}
+                <div className="mb-14 sm:mb-20">
+                    <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-3 italic flex items-center gap-2">
+                        <Gauge size={14} className="text-[#ffc906]" /> {t("skills.sectionLabel")}
+                    </p>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black italic uppercase tracking-tighter text-white">
+                        {t("skills.heading")}
+                    </h2>
+                    {/* Red underline accent */}
+                    <div className="mt-4 h-1 w-24 bg-[#dc0000]" />
                 </div>
 
-                <div className="space-y-12">
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {skillGroups.map((group, idx) => (
                         <motion.div
                             key={group.id}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.2 }}
-                            className="group relative"
+                            transition={{ delay: idx * 0.1 }}
+                            className="group relative bg-[#0a122c] border border-white/5 hover:border-[#ffc906]/30 transition-all duration-300 overflow-hidden"
                         >
-                            <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                                {/* Category Identifier */}
-                                <div className="flex-shrink-0 flex items-center gap-4 w-full md:w-80">
-                                    <div className="w-12 h-12 bg-[#040a18] border border-[#ffc906]/20 flex items-center justify-center text-[#ffc906] group-hover:bg-[#dc0000] group-hover:text-white transition-colors transform -skew-x-12">
-                                        {group.icon}
+                            {/* Card top stripe */}
+                            <div className="h-1 w-full bg-gradient-to-r from-[#dc0000] to-[#ffc906] opacity-60 group-hover:opacity-100 transition-opacity" />
+
+                            <div className="p-6">
+                                {/* Category Header */}
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="w-10 h-10 flex-shrink-0 bg-[#040a18] border border-[#ffc906]/20 flex items-center justify-center text-[#ffc906] group-hover:bg-[#dc0000] group-hover:text-white group-hover:border-[#dc0000] transition-all transform -skew-x-6">
+                                        <span className="transform skew-x-6">
+                                            {group.icon}
+                                        </span>
                                     </div>
                                     <div>
-                                        <span className="block font-mono text-[10px] text-zinc-400 italic leading-none mb-1">{group.id}</span>
-                                        <h3 className="text-2xl font-black italic uppercase tracking-tight text-white group-hover:text-[#ffc906] transition-colors">{group.category}</h3>
+                                        <span className="block font-mono text-[9px] text-zinc-500 uppercase tracking-widest leading-none mb-0.5">{group.id}</span>
+                                        <h3 className="text-base font-black italic uppercase tracking-tight text-white group-hover:text-[#ffc906] transition-colors leading-tight">
+                                            {group.category}
+                                        </h3>
                                     </div>
                                 </div>
 
-                                {/* Skills List */}
-                                <div className="flex-grow flex flex-wrap gap-2 sm:gap-4 border-l-2 md:border-l border-white/10 md:pl-8 py-2">
-                                    {group.items.map((skill, sIdx) => (
-                                        <div key={sIdx} className="relative overflow-hidden group/item">
-                                            <span className="text-lg sm:text-xl font-bold italic uppercase tracking-tighter text-zinc-300 group-hover/item:text-white transition-colors cursor-default">
-                                                {skill}
-                                                {sIdx < group.items.length - 1 && <span className="mx-2 text-[#dc0000] opacity-50">/</span>}
-                                            </span>
-                                            {/* Underline animation */}
-                                            <motion.div
-                                                className="absolute bottom-0 left-0 h-[2px] bg-[#ffc906]"
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: '100%' }}
-                                                transition={{ delay: 0.5 + (sIdx * 0.1) }}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                                {/* Divider */}
+                                <div className="h-px bg-white/5 mb-5" />
 
-                                {/* Performance Data */}
-                                <div className="hidden lg:block text-right w-32">
-                                    <span className="block font-mono text-xs text-zinc-400 uppercase">Perf. Map</span>
-                                    <span className="block font-black text-2xl italic text-[#ffc906]">{group.performance}</span>
+                                {/* Skill Chips */}
+                                <div className="flex flex-wrap gap-2">
+                                    {group.items.map((skill, sIdx) => (
+                                        <motion.span
+                                            key={sIdx}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.2 + idx * 0.1 + sIdx * 0.05 }}
+                                            className="inline-block px-3 py-1.5 text-xs font-bold uppercase tracking-wider bg-[#040a18] border border-white/10 text-zinc-300 hover:border-[#ffc906]/50 hover:text-[#ffc906] hover:bg-[#ffc906]/5 transition-all cursor-default"
+                                        >
+                                            {skill}
+                                        </motion.span>
+                                    ))}
                                 </div>
                             </div>
 
-                            {/* Visual Background Decoration */}
-                            <div className="absolute -z-10 top-0 left-0 w-full h-full bg-white/5 scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-300 pointer-events-none"></div>
+                            {/* Hover glow effect */}
+                            <div className="absolute inset-0 bg-[#ffc906]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>

@@ -50,6 +50,7 @@ export const translations = {
             frontend: "Frontend",
             backend: "Backend",
             database: "Database",
+            systems: "Systems Analysis",
             tools: "Tools",
         },
 
@@ -173,10 +174,11 @@ export const translations = {
             sectionLabel: "การตั้งค่าเครื่องยนต์ & การแมปปิ้ง",
             heading: "Technical_Specs",
             systemCheck: "ข้อมูลเทเลเมตรี: ซิงค์แล้ว",
-            frontend: "ฟรอนต์เอนด์",
-            backend: "แบ็กเอนด์",
-            database: "ฐานข้อมูล",
-            tools: "เครื่องมือพัฒนา",
+            frontend: "Frontend",
+            backend: "Backend",
+            database: "Database",
+            systems: "Systems Analysis",
+            tools: "Tools",
         },
 
         // Garage Section

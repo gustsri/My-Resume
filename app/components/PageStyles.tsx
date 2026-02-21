@@ -2,9 +2,9 @@
 import React from 'react';
 
 const PageStyles = () => {
-    return (
-        <style dangerouslySetInnerHTML={{
-            __html: `
+  return (
+    <style dangerouslySetInnerHTML={{
+      __html: `
       html { scroll-behavior: smooth; }
       
       .scanlines {
@@ -37,20 +37,20 @@ const PageStyles = () => {
 
       .glitch-text:hover::before {
         animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-        color: #f43f5e;
+        color: #ffc906;
         z-index: -1;
       }
 
       .glitch-text:hover::after {
         animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-        color: #00ffff;
+        color: #dc0000;
         z-index: -2;
       }
 
       .speed-line {
         position: absolute;
         height: 1px;
-        background: linear-gradient(90deg, transparent, #fff, transparent);
+        background: linear-gradient(90deg, transparent, rgba(255,201,6,0.6), transparent);
         animation: move-right 0.8s linear infinite;
       }
 
@@ -81,8 +81,12 @@ const PageStyles = () => {
       .animation-delay-1000 { animation-delay: 1s; }
       .animation-delay-2000 { animation-delay: 2s; }
 
-      .text-shadow-red, .text-shadow-rose {
-        text-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+      .text-shadow-red {
+        text-shadow: 0 0 15px rgba(220, 0, 0, 0.5);
+      }
+      
+      .text-shadow-yellow {
+        text-shadow: 0 0 15px rgba(255, 201, 6, 0.4);
       }
 
       section[id] {
@@ -93,7 +97,7 @@ const PageStyles = () => {
         * { cursor: none !important; }
       }
     `}} />
-    );
+  );
 };
 
 export default PageStyles;

@@ -119,7 +119,7 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden md:cursor-none pb-6 sm:pb-8">
+    <div className="min-h-screen bg-[#040a18] text-white font-sans selection:bg-[#ffc906] selection:text-[#040a18] overflow-x-hidden md:cursor-none pb-6 sm:pb-8">
 
       {/* <AnimatePresence>
         {loading && <F1Preloader onComplete={() => setLoading(false)} />}
@@ -127,15 +127,15 @@ const App = () => {
 
       {/* Custom Cursor - Hidden on mobile */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-rose-500 rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center"
+        className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center mix-blend-difference"
         animate={{ x: mousePos.x - 20, y: mousePos.y - 20 }}
         transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
       >
-        <div className="w-1 h-1 bg-rose-500 rounded-full"></div>
+        <div className="w-1.5 h-1.5 bg-[#dc0000] rounded-full"></div>
       </motion.div>
 
       {/* Progress Bar */}
-      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-rose-500 z-[100] origin-left" style={{ scaleX }} />
+      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#dc0000] via-[#ffc906] to-[#ffc906] z-[100] origin-left" style={{ scaleX }} />
 
       {/* Screen Effects (Scanlines & Noise & Speed Lines) */}
       <div className="fixed inset-0 pointer-events-none z-[90] opacity-[0.03] overflow-hidden">
@@ -159,7 +159,7 @@ const App = () => {
             exit={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.3 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-12 sm:bottom-14 right-4 sm:right-6 z-[99] w-12 h-12 sm:w-14 sm:h-14 bg-rose-500 hover:bg-white hover:text-black text-white flex items-center justify-center transform -skew-x-12 shadow-[0_0_20px_rgba(244,63,94,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all active:scale-90 group"
+            className="fixed bottom-12 sm:bottom-14 right-4 sm:right-6 z-[99] w-12 h-12 sm:w-14 sm:h-14 bg-[#dc0000] hover:bg-[#ffc906] hover:text-[#040a18] text-white flex items-center justify-center transform -skew-x-12 shadow-[0_0_20px_rgba(220,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,201,6,0.3)] transition-all active:scale-90 group"
             aria-label="Scroll to top"
           >
             <ChevronUp size={24} className="transform skew-x-12 group-hover:animate-bounce" />
@@ -168,7 +168,7 @@ const App = () => {
       </AnimatePresence>
 
       {/* Live Ticker Bar */}
-      <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-rose-500 z-[100] flex items-center overflow-hidden border-t border-black/20">
+      <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-[#dc0000] z-[100] flex items-center overflow-hidden border-t border-black/20">
         <div className="flex gap-24 whitespace-nowrap animate-ticker py-1 px-4">
           {[1, 2, 3].map(i => (
             <div key={i} className="flex gap-12 font-black italic text-[8px] sm:text-[10px] items-center uppercase tracking-tighter">
@@ -183,7 +183,7 @@ const App = () => {
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 border-b ${scrolled ? 'bg-black/95 border-rose-500 py-3' : 'bg-transparent border-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 border-b ${scrolled ? 'bg-[#040a18]/95 border-[#ffc906]/30 py-3 backdrop-blur-sm' : 'bg-transparent border-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -191,8 +191,8 @@ const App = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">//</div>
-            <span className="font-black tracking-tighter text-xl italic">My Resume</span>
+            <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">RBR</div>
+            <span className="font-black tracking-tighter text-xl italic text-white drop-shadow-md">RACING_DEVEL</span>
           </motion.div>
 
           <div className="hidden md:flex gap-8 items-center">
@@ -204,10 +204,10 @@ const App = () => {
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1 * idx }}
-                  className="hover:text-rose-500 transition-colors relative group uppercase font-bold"
+                  className="hover:text-[#ffc906] transition-colors relative group uppercase font-bold text-white drop-shadow-md"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-rose-500 transition-all group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#ffc906] transition-all group-hover:w-full"></span>
                 </motion.button>
               ))}
             </div>
@@ -221,13 +221,13 @@ const App = () => {
             >
               <button
                 onClick={() => setLocale("th")}
-                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-[#dc0000] text-white" : "text-white/60 hover:text-white"}`}
               >
                 TH
               </button>
               <button
                 onClick={() => setLocale("en")}
-                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-[#dc0000] text-white" : "text-white/60 hover:text-white"}`}
               >
                 EN
               </button>
@@ -247,25 +247,25 @@ const App = () => {
             initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
-            className="fixed inset-0 bg-black z-[110] flex flex-col items-center justify-center gap-8 text-4xl font-black italic uppercase tracking-tighter"
+            className="fixed inset-0 bg-[#040a18] z-[110] flex flex-col items-center justify-center gap-8 text-4xl font-black italic uppercase tracking-tighter"
           >
             {/* Mobile Language Toggle */}
             <div className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden mb-4">
               <button
                 onClick={() => setLocale("th")}
-                className={`px-6 py-2 text-sm font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                className={`px-6 py-2 text-sm font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-[#dc0000] text-white" : "text-white/60 hover:text-white"}`}
               >
                 TH
               </button>
               <button
                 onClick={() => setLocale("en")}
-                className={`px-6 py-2 text-sm font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                className={`px-6 py-2 text-sm font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-[#dc0000] text-white" : "text-white/60 hover:text-white"}`}
               >
                 EN
               </button>
             </div>
             {navItems.map((item) => (
-              <button key={item.id} onClick={() => scrollTo(item.id)} className="hover:text-rose-500 active:text-rose-600">{item.label}</button>
+              <button key={item.id} onClick={() => scrollTo(item.id)} className="hover:text-[#ffc906] active:text-[#ffc906]">{item.label}</button>
             ))}
           </motion.div>
         )}

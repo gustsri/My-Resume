@@ -70,7 +70,7 @@ export default function ContactPage() {
             icon: <Mail size={28} />,
             value: "your.email@example.com",
             href: "mailto:your.email@example.com",
-            color: "hover:border-rose-500 hover:bg-rose-500/5",
+            color: "hover:border-[#dc0000] hover:bg-[#dc0000]/5",
         },
         {
             nameKey: "contactPage.phone",
@@ -89,19 +89,19 @@ export default function ContactPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-rose-500 selection:text-white overflow-x-hidden md:cursor-none">
+        <div className="min-h-screen bg-[#040a18] text-white font-sans selection:bg-[#ffc906] selection:text-[#040a18] overflow-x-hidden md:cursor-none">
             {/* Custom Cursor */}
             <motion.div
-                className="fixed top-0 left-0 w-10 h-10 border border-rose-500 rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center"
+                className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center mix-blend-difference"
                 animate={{ x: mousePos.x - 20, y: mousePos.y - 20 }}
                 transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
             >
-                <div className="w-1 h-1 bg-rose-500 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-[#dc0000] rounded-full"></div>
             </motion.div>
 
             {/* Progress Bar */}
             <motion.div
-                className="fixed top-0 left-0 right-0 h-1 bg-rose-500 z-[100] origin-left"
+                className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#dc0000] via-[#ffc906] to-[#ffc906] z-[100] origin-left"
                 style={{ scaleX }}
             />
 
@@ -113,7 +113,7 @@ export default function ContactPage() {
             {/* Top Navigation */}
             <nav
                 className={`fixed top-0 w-full z-[100] transition-all duration-300 border-b ${scrolled
-                    ? "bg-black/95 border-rose-500 py-3"
+                    ? "bg-[#040a18]/95 border-[#ffc906]/30 py-3 backdrop-blur-sm"
                     : "bg-transparent border-transparent py-6"
                     }`}
             >
@@ -124,7 +124,7 @@ export default function ContactPage() {
                         onClick={() => router.push("/")}
                         className="flex items-center gap-3 group"
                     >
-                        <div className="w-10 h-10 bg-rose-500 flex items-center justify-center transform -skew-x-12 group-hover:bg-white group-hover:text-black transition-all">
+                        <div className="w-10 h-10 bg-[#dc0000] flex items-center justify-center transform -skew-x-12 group-hover:bg-[#ffc906] group-hover:text-[#040a18] transition-all">
                             <ArrowLeft size={20} className="transform skew-x-12" />
                         </div>
                         <span className="text-xs font-black tracking-[0.2em] uppercase hidden sm:inline opacity-60 group-hover:opacity-100 transition-opacity">
@@ -137,13 +137,13 @@ export default function ContactPage() {
                         <div className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden">
                             <button
                                 onClick={() => setLocale("th")}
-                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "th" ? "bg-[#dc0000] text-white" : "text-white/60 hover:text-white"}`}
                             >
                                 TH
                             </button>
                             <button
                                 onClick={() => setLocale("en")}
-                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-rose-500 text-white" : "text-white/60 hover:text-white"}`}
+                                className={`px-3 py-1 text-[10px] font-black tracking-wider transition-all transform skew-x-12 ${locale === "en" ? "bg-[#dc0000] text-white" : "text-white/60 hover:text-white"}`}
                             >
                                 EN
                             </button>
@@ -155,8 +155,8 @@ export default function ContactPage() {
                             className="flex items-center gap-2 cursor-pointer"
                             onClick={() => router.push("/")}
                         >
-                            <div className="w-8 h-8 bg-rose-500 flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
-                                F1
+                            <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
+                                RBR
                             </div>
                             <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
                                 RACING_DEVEL
@@ -185,7 +185,7 @@ export default function ContactPage() {
                         className="inline-block border border-white/20 px-4 py-1 mb-6 transform -skew-x-12"
                     >
                         <p className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] font-bold uppercase flex items-center gap-2">
-                            <Radio size={10} className="animate-pulse text-rose-500" />{" "}
+                            <Radio size={10} className="animate-pulse text-[#dc0000]" />{" "}
                             {t("contactPage.badge")}
                         </p>
                     </motion.div>
@@ -196,7 +196,7 @@ export default function ContactPage() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black italic uppercase tracking-tighter leading-none mb-4"
                     >
-                        {t("contactPage.heading")} <span className="text-rose-500">{t("contactPage.headingAccent")}</span>
+                        {t("contactPage.heading")} <span className="text-[#ffc906]">{t("contactPage.headingAccent")}</span>
                     </motion.h1>
 
                     <motion.p
@@ -223,10 +223,10 @@ export default function ContactPage() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 * index }}
-                                className={`bg-[#111] border border-white/10 p-6 sm:p-8 relative overflow-hidden group transition-all duration-300 block ${channel.color}`}
+                                className={`bg-[#0a122c] border border-white/10 p-6 sm:p-8 relative overflow-hidden group transition-all duration-300 block ${channel.color}`}
                             >
                                 <div className="flex justify-between items-start mb-8">
-                                    <div className="p-3 sm:p-4 bg-rose-500 transform -skew-x-12 group-hover:bg-white group-hover:text-rose-500 transition-colors">
+                                    <div className="p-3 sm:p-4 bg-[#dc0000] transform -skew-x-12 group-hover:bg-[#ffc906] group-hover:text-[#040a18] transition-colors">
                                         <div className="transform skew-x-12">{channel.icon}</div>
                                     </div>
                                     <ExternalLink
@@ -263,11 +263,11 @@ export default function ContactPage() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-[#111] border border-white/10 p-10 sm:p-16 relative overflow-hidden group hover:border-rose-500 transition-colors"
+                        className="bg-[#0a122c] border border-white/10 p-10 sm:p-16 relative overflow-hidden group hover:border-[#ffc906] transition-colors"
                     >
-                        <Flag className="mx-auto mb-6 w-12 h-12 text-rose-500" />
+                        <Flag className="mx-auto mb-6 w-12 h-12 text-[#ffc906]" />
                         <h2 className="text-3xl sm:text-5xl font-black italic uppercase tracking-tighter mb-4">
-                            {t("contactPage.resumeSection.heading")} <span className="text-rose-500">{t("contactPage.resumeSection.headingAccent")}</span>
+                            {t("contactPage.resumeSection.heading")} <span className="text-[#dc0000]">{t("contactPage.resumeSection.headingAccent")}</span>
                         </h2>
                         <p className="text-gray-400 text-sm sm:text-base mb-8 max-w-lg mx-auto">
                             {t("contactPage.resumeSection.description")}
@@ -275,7 +275,7 @@ export default function ContactPage() {
                         <a
                             href="/Kanitphong Sricharoen Resume.pdf"
                             download
-                            className="inline-flex items-center gap-3 bg-rose-500 text-white px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-white hover:text-black transition-all transform -skew-x-12 shadow-2xl active:scale-95"
+                            className="inline-flex items-center gap-3 bg-[#dc0000] text-white px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-[#ffc906] hover:text-[#040a18] transition-all transform -skew-x-12 shadow-2xl active:scale-95"
                         >
                             <span className="transform skew-x-12">{t("contactPage.resumeSection.downloadBtn")}</span>
                         </a>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    className="fixed bottom-6 right-4 sm:right-6 z-[99] w-12 h-12 sm:w-14 sm:h-14 bg-rose-500 hover:bg-white hover:text-black text-white flex items-center justify-center transform -skew-x-12 shadow-[0_0_20px_rgba(244,63,94,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all active:scale-90 group"
+                    className="fixed bottom-6 right-4 sm:right-6 z-[99] w-12 h-12 sm:w-14 sm:h-14 bg-[#dc0000] hover:bg-[#ffc906] hover:text-[#040a18] text-white flex items-center justify-center transform -skew-x-12 shadow-[0_0_20px_rgba(220,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,201,6,0.3)] transition-all active:scale-90 group"
                     aria-label="Scroll to top"
                 >
                     <ChevronUp

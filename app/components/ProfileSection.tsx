@@ -28,29 +28,31 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                         viewport={{ once: true }}
                         className="w-full sm:max-w-sm md:col-span-1 relative mx-auto md:mx-0"
                     >
-                        <div className="aspect-[3/4] overflow-hidden border-2 border-rose-500 relative group">
+                        <div className="aspect-[3/4] overflow-hidden border-2 border-[#dc0000] relative group shadow-[0_0_30px_rgba(220,0,0,0.1)]">
                             <img
                                 src="/Kanitphong.gif"
-                                // src="/GUS.png"
-                                // src="/Gemini_Generated_Image_mtdlv0mtdlv0mtdl.png"
                                 alt="Profile"
                                 className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-rose-500/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="absolute inset-0 bg-[#dc0000]/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
-                        <div className="absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 border-b-2 border-l-2 border-rose-500"></div>
+                        <div className="absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 border-b-2 border-l-2 border-[#dc0000]"></div>
+                        <div className="mt-4 flex gap-4">
+                            <div className="bg-[#dc0000] text-white px-3 py-1 font-bold text-[10px] transform -skew-x-12 uppercase">Rank: Pro</div>
+                            <div className="bg-[#040a18] text-white px-3 py-1 font-bold text-[10px] transform -skew-x-12 uppercase">Sector 1</div>
+                        </div>
                     </motion.div>
 
                     <div className="md:col-span-3 space-y-8">
                         <Reveal>
-                            <div className="flex items-center gap-4 opacity-50">
-                                <User size={16} className="text-gray-500" />
-                                <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase italic text-gray-500">{t("profile.sectionLabel")}</span>
+                            <div className="flex items-center gap-4 opacity-70">
+                                <User size={16} className="text-[#0a122c]" />
+                                <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase italic text-[#0a122c]">{t("profile.sectionLabel")}</span>
                             </div>
                         </Reveal>
                         <Reveal delay={0.3}>
-                            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-tight text-center md:text-left text-gray-900">
-                                {t("profile.heading")} <span className="text-rose-500 text-shadow-rose">{t("profile.headingAccent")}</span>
+                            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-tight text-center md:text-left text-[#040a18]">
+                                {t("profile.heading")} <span className="text-[#dc0000] text-shadow-red">{t("profile.headingAccent")}</span>
                             </h2>
                         </Reveal>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -61,12 +63,12 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                                     </p>
                                 </Reveal>
                             </div>
-                            <div className="border-l-2 md:border-l border-rose-500/30 md:border-gray-200 pl-6 md:pl-8 space-y-6">
+                            <div className="border-l-2 md:border-l border-[#dc0000]/30 md:border-gray-200 pl-6 md:pl-8 space-y-6">
                                 {infoItems.map((item, i) => (
                                     <Reveal key={item.label} delay={0.5 + (i * 0.1)}>
                                         <div>
-                                            <h4 className="text-rose-500 font-bold uppercase text-[10px] sm:text-xs tracking-widest mb-1 italic">{item.label}</h4>
-                                            <p className="text-lg sm:text-xl font-bold italic uppercase tracking-tight text-gray-900">
+                                            <h4 className="text-[#dc0000] font-bold uppercase text-[10px] sm:text-xs tracking-widest mb-1 italic">{item.label}</h4>
+                                            <p className="text-lg sm:text-xl font-bold italic uppercase tracking-tight text-[#040a18]">
                                                 {item.value}
                                             </p>
                                         </div>

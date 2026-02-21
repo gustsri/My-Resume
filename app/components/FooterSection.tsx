@@ -6,19 +6,19 @@ const FooterSection = () => {
     const { t } = useLanguage();
 
     return (
-        <footer className="py-16 sm:py-24 px-6 border-t border-white/10 bg-black">
+        <footer className="py-16 sm:py-24 px-6 border-t border-[#0a122c] bg-[#040a18]">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
                 <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-white text-black flex items-center justify-center font-black italic transform -skew-x-12 text-lg">F1</div>
-                    <span className="block font-black tracking-tighter text-2xl italic leading-none">{t("footer.name")}</span>
+                    <div className="w-10 h-10 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-lg">RBR</div>
+                    <span className="block font-black tracking-tighter text-2xl italic leading-none text-white">{t("footer.name")}</span>
                 </div>
                 <div className="flex flex-col items-center md:items-end gap-2">
-                    <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+                    <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
                         {t("footer.version")}
                     </div>
                     <div className="flex gap-6 mt-2">
                         {["LinkedIn", "Github", "X"].map(social => (
-                            <a key={social} href="#" className="text-[10px] font-black italic uppercase tracking-widest hover:text-rose-500 transition-colors">{social}</a>
+                            <a key={social} href="#" className="text-[10px] font-black italic uppercase tracking-widest text-zinc-400 hover:text-[#ffc906] transition-colors">{social}</a>
                         ))}
                     </div>
                 </div>

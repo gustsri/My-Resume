@@ -289,23 +289,34 @@ export default function ProjectDetail() {
             </section>
 
             {/* Features Section */}
-            <section className="py-16 sm:py-24 px-6 bg-[#040a18]">
-                <div className="max-w-7xl mx-auto">
+            <section className="py-16 sm:py-24 px-6 bg-[#0a122c] relative overflow-hidden border-t border-white/5">
+                {/* Red Bull Diagonal stripes gimmick */}
+                <div className="absolute -right-20 top-20 w-64 h-8 bg-[#dc0000] transform rotate-45 opacity-[0.03]"></div>
+                <div className="absolute -right-24 top-24 w-64 h-4 bg-[#ffc906] transform rotate-45 opacity-[0.03]"></div>
+
+                <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mb-12 sm:mb-16"
+                        className="mb-12 sm:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
                     >
-                        <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                            <Gauge size={14} /> {t("projectDetail.performanceSpecs")}
-                        </p>
-                        <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter">
-                            {t("projectDetail.keyFeatures")}
-                        </h2>
+                        <div>
+                            <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
+                                <Gauge size={14} /> {t("projectDetail.performanceSpecs")}
+                            </p>
+                            <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter">
+                                {t("projectDetail.keyFeatures")}
+                            </h2>
+                        </div>
+                        <div className="flex gap-2 opacity-80 mb-2">
+                            <div className="w-8 h-2 bg-[#dc0000] transform -skew-x-12"></div>
+                            <div className="w-8 h-2 bg-[#0a122c] border border-white/10 transform -skew-x-12"></div>
+                            <div className="w-4 h-2 bg-[#ffc906] transform -skew-x-12"></div>
+                        </div>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         {project.features[locale].map((feature: string, index: number) => (
                             <motion.div
                                 key={index}
@@ -313,26 +324,25 @@ export default function ProjectDetail() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-[#0a122c] border border-white/10 p-6 relative overflow-hidden group hover:border-[#ffc906] transition-all"
+                                className="bg-[#0a122c] border border-white/5 p-6 sm:p-8 relative overflow-hidden group hover:border-[#ffc906]/30 transition-all shadow-lg"
                             >
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-[#dc0000] flex-shrink-0 flex items-center justify-center transform -skew-x-12 group-hover:bg-[#ffc906] group-hover:text-[#040a18] transition-colors">
+                                <div className="absolute top-0 left-0 w-1 h-full bg-[#dc0000] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#ffc906]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="flex items-start gap-4 sm:gap-5 relative z-10">
+                                    <div className="w-10 h-10 bg-[#040a18] border border-white/10 flex-shrink-0 flex items-center justify-center transform -skew-x-12 group-hover:bg-[#dc0000] group-hover:border-[#dc0000] transition-colors text-white/50 group-hover:text-white mt-1 shadow-sm">
                                         <CheckCircle2
                                             size={18}
                                             className="transform skew-x-12"
                                         />
                                     </div>
                                     <div>
-                                        <span className="text-[10px] text-zinc-500 font-mono uppercase">
+                                        <span className="text-[10px] text-[#ffc906] font-mono uppercase tracking-widest block mb-1">
                                             SPEC_{String(index + 1).padStart(2, "0")}
                                         </span>
-                                        <p className="text-sm sm:text-base font-bold italic uppercase tracking-tight mt-1">
+                                        <p className="text-sm sm:text-base font-medium text-white/80 group-hover:text-white transition-colors leading-relaxed">
                                             {feature}
                                         </p>
                                     </div>
-                                </div>
-                                <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                    <Zap size={80} />
                                 </div>
                             </motion.div>
                         ))}
@@ -341,8 +351,11 @@ export default function ProjectDetail() {
             </section>
 
             {/* Tech Stack Section */}
-            <section className="py-16 sm:py-24 px-6 border-y border-gray-200 bg-white">
-                <div className="max-w-7xl mx-auto">
+            <section className="py-16 sm:py-24 px-6 bg-white border-y border-gray-200 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-r from-transparent to-[#ffc906] opacity-30"></div>
+                <div className="absolute bottom-0 left-0 w-1/3 h-px bg-gradient-to-r from-[#dc0000] to-transparent opacity-30"></div>
+
+                <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -352,12 +365,15 @@ export default function ProjectDetail() {
                         <p className="text-[#dc0000] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
                             <Cpu size={14} /> {t("projectDetail.engineComponents")}
                         </p>
-                        <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter text-[#040a18]">
-                            {t("projectDetail.techStack")}
-                        </h2>
+                        <div className="flex items-center gap-6">
+                            <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter text-[#040a18]">
+                                {t("projectDetail.techStack")}
+                            </h2>
+                            <div className="hidden sm:block flex-grow h-[1px] bg-gradient-to-r from-black/10 to-transparent"></div>
+                        </div>
                     </motion.div>
 
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3 sm:gap-4">
                         {project.techStack.map((tech, index) => (
                             <motion.div
                                 key={index}
@@ -365,9 +381,13 @@ export default function ProjectDetail() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.05 }}
-                                className="bg-[#dc0000] hover:bg-[#ffc906] hover:text-[#040a18] text-white px-5 py-2 font-black italic text-sm transform -skew-x-12 transition-colors cursor-default"
+                                className="group bg-white border border-gray-200 hover:border-[#dc0000] text-[#040a18] hover:text-[#040a18] px-5 sm:px-6 py-2.5 sm:py-3 font-black italic text-sm sm:text-base transform -skew-x-12 transition-all cursor-default relative overflow-hidden shadow-sm hover:shadow-[0_0_15px_rgba(220,0,0,0.1)]"
                             >
-                                <span className="inline-block transform skew-x-12">{tech.name}</span>
+                                <div className="absolute top-0 left-0 w-1 h-full bg-[#ffc906] transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+                                <span className="inline-block transform skew-x-12 relative z-10 tracking-widest flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#dc0000] opacity-50 group-hover:opacity-100 group-hover:bg-[#ffc906] transition-colors"></span>
+                                    {tech.name}
+                                </span>
                             </motion.div>
                         ))}
                     </div>

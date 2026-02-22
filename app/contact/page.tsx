@@ -47,44 +47,44 @@ export default function ContactPage() {
         {
             nameKey: "contactPage.github",
             icon: <Github size={28} />,
-            value: "github.com/yourusername",
-            href: "https://github.com/yourusername",
-            color: "hover:border-white hover:bg-white/5",
+            value: "github.com/gustsri",
+            href: "https://github.com/gustsri",
+            color: "bg-[#181717] group-hover:text-[#181717]", // GitHub gray/black
         },
         {
             nameKey: "contactPage.linkedin",
             icon: <Linkedin size={28} />,
-            value: "linkedin.com/in/yourusername",
-            href: "https://linkedin.com/in/yourusername",
-            color: "hover:border-blue-500 hover:bg-blue-500/5",
+            value: "linkedin.com/in/kanitphong-gust/",
+            href: "https://www.linkedin.com/in/kanitphong-gust/",
+            color: "bg-[#0A66C2] group-hover:text-[#0A66C2]", // LinkedIn blue
         },
         {
             nameKey: "contactPage.facebook",
             icon: <Facebook size={28} />,
             value: "facebook.com/yourusername",
             href: "https://facebook.com/yourusername",
-            color: "hover:border-blue-600 hover:bg-blue-600/5",
+            color: "bg-[#1877F2] group-hover:text-[#1877F2]", // Facebook blue
         },
         {
             nameKey: "contactPage.email",
             icon: <Mail size={28} />,
-            value: "your.email@example.com",
-            href: "mailto:your.email@example.com",
-            color: "hover:border-[#dc0000] hover:bg-[#dc0000]/5",
+            value: "gustsri@gmail.com",
+            href: "mailto:gustsri@gmail.com",
+            color: "bg-[#EA4335] group-hover:text-[#EA4335]", // Google / Gmail red
         },
         {
             nameKey: "contactPage.phone",
             icon: <Phone size={28} />,
-            value: "+66 XX-XXX-XXXX",
-            href: "tel:+66XXXXXXXX",
-            color: "hover:border-green-500 hover:bg-green-500/5",
+            value: "0987623202",
+            href: "tel:0987623202",
+            color: "bg-[#10B981] group-hover:text-[#10B981]", // Emerald Green
         },
         {
             nameKey: "contactPage.line",
             icon: <MessageCircle size={28} />,
-            value: "@your-line-id",
-            href: "https://line.me/ti/p/your-line-id",
-            color: "hover:border-green-400 hover:bg-green-400/5",
+            value: "gus_srii",
+            href: "https://line.me/ti/p/gus_srii",
+            color: "bg-[#00C300] group-hover:text-[#00C300]", // LINE green
         },
     ];
 
@@ -223,31 +223,32 @@ export default function ContactPage() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 * index }}
-                                className={`bg-[#0a122c] border border-white/10 p-6 sm:p-8 relative overflow-hidden group transition-all duration-300 block ${channel.color}`}
+                                className={`bg-white border border-gray-200 p-6 sm:p-8 relative overflow-hidden group transition-all duration-300 block hover:shadow-[0_0_20px_rgba(220,0,0,0.15)] hover:border-[#dc0000]`}
                             >
-                                <div className="flex justify-between items-start mb-8">
-                                    <div className="p-3 sm:p-4 bg-[#dc0000] transform -skew-x-12 group-hover:bg-[#ffc906] group-hover:text-[#040a18] transition-colors">
+                                <div className="absolute top-0 left-0 w-1 h-full bg-[#ffc906] transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+                                <div className="flex justify-between items-start mb-8 relative z-10">
+                                    <div className={`p-3 sm:p-4 ${channel.color.split(' ')[0]} text-white transform -skew-x-12 group-hover:bg-white border border-transparent group-hover:border-gray-200 ${channel.color.split(' ')[1]} transition-colors shadow-sm`}>
                                         <div className="transform skew-x-12">{channel.icon}</div>
                                     </div>
                                     <ExternalLink
                                         size={16}
-                                        className="opacity-0 group-hover:opacity-100 transition-opacity text-zinc-400"
+                                        className="opacity-0 group-hover:opacity-100 transition-opacity text-[#dc0000]"
                                     />
                                 </div>
 
-                                <h3 className="font-black text-xl sm:text-2xl italic uppercase tracking-tighter mb-2">
+                                <h3 className="font-black text-xl sm:text-2xl italic uppercase tracking-tighter mb-2 text-[#040a18] relative z-10">
                                     {t(`${channel.nameKey}.name`)}
                                 </h3>
-                                <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-4 italic">
+                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-4 italic relative z-10">
                                     {t(`${channel.nameKey}.description`)}
                                 </p>
-                                <div className="border-t border-white/10 pt-4">
-                                    <p className="text-sm sm:text-base text-gray-300 font-mono truncate">
+                                <div className="border-t border-gray-200 pt-4 relative z-10 group-hover:border-[#dc0000]/30 transition-colors">
+                                    <p className="text-sm sm:text-base text-gray-600 group-hover:text-[#040a18] font-mono truncate transition-colors">
                                         {channel.value}
                                     </p>
                                 </div>
 
-                                <div className="absolute -right-6 -bottom-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <div className={`absolute -right-6 -bottom-6 opacity-[0.03] group-hover:opacity-10 transition-opacity pointer-events-none group-hover:${channel.color.split(' ')[1].replace('text-', 'text-').replace('group-hover:', '')}`}>
                                     <div className="transform scale-[3]">{channel.icon}</div>
                                 </div>
                             </motion.a>

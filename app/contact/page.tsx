@@ -92,9 +92,9 @@ export default function ContactPage() {
         <div className="min-h-screen bg-[#040a18] text-white font-sans selection:bg-[#ffc906] selection:text-[#040a18] overflow-x-hidden md:cursor-none">
             {/* Custom Cursor */}
             <motion.div
-                className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center mix-blend-difference"
+                className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center"
                 animate={{ x: mousePos.x - 20, y: mousePos.y - 20 }}
-                transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+                transition={{ type: "tween", duration: 0.05, ease: "linear" }}
             >
                 <div className="w-1.5 h-1.5 bg-[#dc0000] rounded-full"></div>
             </motion.div>

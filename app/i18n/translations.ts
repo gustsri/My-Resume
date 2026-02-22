@@ -156,24 +156,23 @@ export const translations = {
 
         // Profile Section
         profile: {
-            sectionLabel: "โปรไฟล์ & ประวัติย่อ",
+            sectionLabel: "Driver Profile & Bio",
             heading: "Kanitphong",
-            headingAccent: "MAXIMUM",
-            headingEnd: "PERFORMANCE.",
+            headingAccent: "Sricharoen",
             bio: "นักศึกษาปีสุดท้าย สาขาเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง เน้นด้าน Software Development และ System Analysis มีประสบการณ์ในการพัฒนา Web Application ตั้งแต่การวิเคราะห์ความต้องการจนถึงการ Implement ทั้ง Fullstack หลงใหลในการออกแบบระบบที่ใช้งานได้จริงและ Database Model (ERD) พร้อมเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอ",
-            currentTeam: "ทีมปัจจุบัน",
-            currentTeamValue: "Freelance / อิสระ",
-            specialization: "ความเชี่ยวชาญ",
-            specializationValue: "System Architecture",
-            baseOps: "ฐานปฏิบัติการ",
-            baseOpsValue: "กรุงเทพฯ, ประเทศไทย",
+            currentTeam: "การศึกษา",
+            currentTeamValue: "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)",
+            specialization: "ปริญญาตรี",
+            specializationValue: "เทคโนโลยีสารสนเทศ (การพัฒนาซอฟต์แวร์)",
+            baseOps: "เกรดเฉลี่ย",
+            baseOpsValue: "GPA: 2.93 | คาดว่าจะสำเร็จการศึกษา: 2569",
         },
 
         // Skills Section
         skills: {
-            sectionLabel: "การตั้งค่าเครื่องยนต์ & การแมปปิ้ง",
-            heading: "Technical_Specs",
-            systemCheck: "ข้อมูลเทเลเมตรี: ซิงค์แล้ว",
+            sectionLabel: "Technical Specs",
+            heading: "Skills",
+            systemCheck: "System Check",
             frontend: "Frontend",
             backend: "Backend",
             database: "Database",
@@ -183,31 +182,31 @@ export const translations = {
 
         // Garage Section
         garage: {
-            sectionLabel: "บันทึกผลงาน / Pit Stop",
-            heading: "THE_GARAGE",
+            sectionLabel: "Pit Stop Records",
+            heading: "Projects",
             viewProject: "ดูโปรเจกต์",
         },
 
         // Contact Section (home page)
         contact: {
-            heading1: "ถึงเส้น",
-            heading2: "ชัยชนะ",
+            heading1: "REACH THE",
+            heading2: "FINISH LINE",
             hireMeBtn: "จ้างฉันเลย",
             resumeBtn: "ดาวน์โหลด Resume",
         },
 
         // Footer
         footer: {
-            name: "THANAKORN_2024",
-            version: "VER: 1.1.2 // สถานะ: พร้อมใช้งาน",
+            name: "Kanitphong 2026",
+            version: "VER: 1.0.0 // สถานะ: พร้อมใช้งาน",
         },
 
         // Ticker Bar
         ticker: {
-            telemetry: "ข้อมูล LIVE: กำลังส่ง",
-            systemStatus: "สถานะระบบ: ไม่มีข้อผิดพลาด",
-            engineTemp: "อุณหภูมิเครื่อง: เหมาะสม",
-            lapTime: "เวลาต่อรอบ: 1:12.332",
+            telemetry: "LIVE TELEMETRY: ACTIVE",
+            systemStatus: "SYSTEM_STATUS: NO_ERRORS",
+            engineTemp: "ENGINE_TEMP: OPTIMIZED",
+            lapTime: "LAP_TIME: 1:12.332",
         },
 
         // Contact Page
@@ -224,7 +223,7 @@ export const translations = {
             phone: { name: "PHONE", description: "สายโทรศัพท์" },
             line: { name: "LINE", description: "ข้อความด่วน" },
             resumeSection: {
-                heading: "ดาวน์โหลด",
+                heading: "GET MY",
                 headingAccent: "RESUME",
                 description: "ดาวน์โหลด Resume ฉบับเต็มเพื่อดูประสบการณ์ ทักษะ และผลงานทั้งหมดของผม",
                 downloadBtn: "ดาวน์โหลด Resume (PDF)",
@@ -236,15 +235,15 @@ export const translations = {
             backToGarage: "กลับไปที่ Garage",
             dnf: "DNF",
             notFound: "ไม่พบโปรเจกต์นี้",
-            raceBrief: "สรุปผลงาน",
-            projectOverview: "ภาพรวม",
-            overviewAccent: "โปรเจกต์",
-            performanceSpecs: "สเปคประสิทธิภาพ",
-            keyFeatures: "ฟีเจอร์หลัก",
-            engineComponents: "ส่วนประกอบเครื่องยนต์",
+            raceBrief: "Race Brief",
+            projectOverview: "PROJECT",
+            overviewAccent: "OVERVIEW",
+            performanceSpecs: "Performance Specs",
+            keyFeatures: "KEY_FEATURES",
+            engineComponents: "Engine Components",
             techStack: "TECH_STACK",
-            interestedHeading1: "สนใจ",
-            interestedHeading2: "โปรเจกต์นี้?",
+            interestedHeading1: "INTERESTED IN",
+            interestedHeading2: "THIS PROJECT?",
             contactMe: "ติดต่อฉัน",
             viewOther: "ดูโปรเจกต์อื่น",
             roleLabel: "บทบาท",

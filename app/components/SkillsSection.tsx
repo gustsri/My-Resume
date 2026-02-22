@@ -45,7 +45,7 @@ const SkillsSection = ({ skillGroups, scrollToNext }: SkillsSectionProps) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className="group relative bg-[#0a122c] border border-white/5 hover:border-[#ffc906]/30 transition-all duration-300 overflow-hidden"
+                            className="group relative bg-white border border-gray-200 hover:border-[#ffc906]/60 transition-all duration-300 overflow-hidden shadow-sm"
                         >
                             {/* Card top stripe */}
                             <div className="h-1 w-full bg-gradient-to-r from-[#dc0000] to-[#ffc906] opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -53,21 +53,21 @@ const SkillsSection = ({ skillGroups, scrollToNext }: SkillsSectionProps) => {
                             <div className="p-6">
                                 {/* Category Header */}
                                 <div className="flex items-center gap-3 mb-5">
-                                    <div className="w-10 h-10 flex-shrink-0 bg-[#040a18] border border-[#ffc906]/20 flex items-center justify-center text-[#ffc906] group-hover:bg-[#dc0000] group-hover:text-white group-hover:border-[#dc0000] transition-all transform -skew-x-6">
+                                    <div className="w-10 h-10 flex-shrink-0 bg-[#040a18] border border-[#040a18]/10 flex items-center justify-center text-[#ffc906] group-hover:bg-[#dc0000] group-hover:text-white group-hover:border-[#dc0000] transition-all transform -skew-x-6">
                                         <span className="transform skew-x-6">
                                             {group.icon}
                                         </span>
                                     </div>
                                     <div>
-                                        <span className="block font-mono text-[9px] text-zinc-500 uppercase tracking-widest leading-none mb-0.5">{group.id}</span>
-                                        <h3 className="text-base font-black italic uppercase tracking-tight text-white group-hover:text-[#ffc906] transition-colors leading-tight">
+                                        <span className="block font-mono text-[9px] text-zinc-400 uppercase tracking-widest leading-none mb-0.5">{group.id}</span>
+                                        <h3 className="text-base font-black italic uppercase tracking-tight text-[#040a18] group-hover:text-[#dc0000] transition-colors leading-tight">
                                             {group.category}
                                         </h3>
                                     </div>
                                 </div>
 
                                 {/* Divider */}
-                                <div className="h-px bg-white/5 mb-5" />
+                                <div className="h-px bg-gray-100 mb-5" />
 
                                 {/* Skill Chips */}
                                 <div className="flex flex-wrap gap-2">
@@ -78,7 +78,7 @@ const SkillsSection = ({ skillGroups, scrollToNext }: SkillsSectionProps) => {
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: 0.2 + idx * 0.1 + sIdx * 0.05 }}
-                                            className="inline-block px-3 py-1.5 text-xs font-bold uppercase tracking-wider bg-[#040a18] border border-white/10 text-zinc-300 hover:border-[#ffc906]/50 hover:text-[#ffc906] hover:bg-[#ffc906]/5 transition-all cursor-default"
+                                            className="inline-block px-3 py-1.5 text-xs font-bold uppercase tracking-wider bg-gray-50 border border-gray-200 text-gray-600 hover:border-[#ffc906]/60 hover:text-[#dc0000] hover:bg-[#ffc906]/10 transition-all cursor-default"
                                         >
                                             {skill}
                                         </motion.span>
@@ -87,7 +87,7 @@ const SkillsSection = ({ skillGroups, scrollToNext }: SkillsSectionProps) => {
                             </div>
 
                             {/* Hover glow effect */}
-                            <div className="absolute inset-0 bg-[#ffc906]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                            <div className="absolute inset-0 bg-[#ffc906]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>

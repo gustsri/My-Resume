@@ -128,9 +128,9 @@ const App = () => {
 
       {/* Custom Cursor - Hidden on mobile */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center mix-blend-difference"
+        className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center"
         animate={{ x: mousePos.x - 20, y: mousePos.y - 20 }}
-        transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+        transition={{ type: "tween", duration: 0.05, ease: "linear" }}
       >
         <div className="w-1.5 h-1.5 bg-[#dc0000] rounded-full"></div>
       </motion.div>
@@ -192,8 +192,8 @@ const App = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">RBR</div>
-            <span className="font-black tracking-tighter text-xl italic text-white drop-shadow-md">RACING_DEVEL</span>
+            <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">//</div>
+            <span className="font-black tracking-tighter text-xl italic text-white drop-shadow-md">My Resume</span>
           </motion.div>
 
           <div className="hidden md:flex gap-8 items-center">

@@ -75,9 +75,9 @@ export default function ProjectDetail() {
         <div className="min-h-screen bg-[#040a18] text-white font-sans selection:bg-[#ffc906] selection:text-[#040a18] overflow-x-hidden md:cursor-none pb-6 sm:pb-8">
             {/* Custom Cursor */}
             <motion.div
-                className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center mix-blend-difference"
+                className="fixed top-0 left-0 w-10 h-10 border border-[#ffc906] rounded-full z-[9999] pointer-events-none hidden md:flex items-center justify-center"
                 animate={{ x: mousePos.x - 20, y: mousePos.y - 20 }}
-                transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+                transition={{ type: "tween", duration: 0.05, ease: "linear" }}
             >
                 <div className="w-1.5 h-1.5 bg-[#dc0000] rounded-full"></div>
             </motion.div>
@@ -139,10 +139,10 @@ export default function ProjectDetail() {
                             onClick={() => router.push("/")}
                         >
                             <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
-                                RBR
+                                //
                             </div>
                             <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
-                                RACING_DEVEL
+                                My Resume
                             </span>
                         </motion.div>
                     </div>
@@ -191,7 +191,7 @@ export default function ProjectDetail() {
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black italic uppercase tracking-tighter leading-none mb-8"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-none mb-8"
                     >
                         {project.title}
                     </motion.h1>
@@ -255,7 +255,7 @@ export default function ProjectDetail() {
             </section>
 
             {/* Description Section */}
-            <section className="py-16 sm:py-24 px-6 border-y border-white/5 bg-[#060e24]">
+            <section className="py-16 sm:py-24 px-6 border-y border-gray-200 bg-white">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div className="md:col-span-1">
                         <motion.div
@@ -264,14 +264,14 @@ export default function ProjectDetail() {
                             viewport={{ once: true }}
                         >
                             <div className="flex items-center gap-3 mb-4 opacity-50">
-                                <Radio size={14} />
-                                <span className="text-[10px] font-bold tracking-[0.3em] uppercase italic">
+                                <Radio size={14} className="text-[#040a18]" />
+                                <span className="text-[10px] font-bold tracking-[0.3em] uppercase italic text-[#040a18]">
                                     {t("projectDetail.raceBrief")}
                                 </span>
                             </div>
-                            <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter">
+                            <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-[#040a18]">
                                 {t("projectDetail.projectOverview")}<br />
-                                <span className="text-[#ffc906]">{t("projectDetail.overviewAccent")}</span>
+                                <span className="text-[#dc0000]">{t("projectDetail.overviewAccent")}</span>
                             </h2>
                         </motion.div>
                     </div>
@@ -280,7 +280,7 @@ export default function ProjectDetail() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-gray-300 text-lg sm:text-xl leading-relaxed font-medium"
+                            className="text-gray-600 text-lg sm:text-xl leading-relaxed font-medium"
                         >
                             {project.longDescription[locale]}
                         </motion.p>
@@ -305,7 +305,7 @@ export default function ProjectDetail() {
                         </h2>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {project.features[locale].map((feature: string, index: number) => (
                             <motion.div
                                 key={index}
@@ -341,7 +341,7 @@ export default function ProjectDetail() {
             </section>
 
             {/* Tech Stack Section */}
-            <section className="py-16 sm:py-24 px-6 border-y border-white/5 bg-[#060e24]">
+            <section className="py-16 sm:py-24 px-6 border-y border-gray-200 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -349,38 +349,25 @@ export default function ProjectDetail() {
                         viewport={{ once: true }}
                         className="mb-12 sm:mb-16"
                     >
-                        <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
+                        <p className="text-[#dc0000] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
                             <Cpu size={14} /> {t("projectDetail.engineComponents")}
                         </p>
-                        <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter">
+                        <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter text-[#040a18]">
                             {t("projectDetail.techStack")}
                         </h2>
                     </motion.div>
 
-                    <div className="space-y-4">
+                    <div className="flex flex-wrap gap-3">
                         {project.techStack.map((tech, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 bg-[#0a122c] border border-white/10 p-6 group hover:border-[#ffc906] transition-colors"
+                                transition={{ delay: index * 0.05 }}
+                                className="bg-[#dc0000] hover:bg-[#ffc906] hover:text-[#040a18] text-white px-5 py-2 font-black italic text-sm transform -skew-x-12 transition-colors cursor-default"
                             >
-                                <div className="flex items-center gap-4 min-w-[200px]">
-                                    <span className="text-[10px] text-zinc-600 font-mono">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
-                                    <div className="bg-[#dc0000] px-4 py-1.5 font-black italic text-sm transform -skew-x-12 group-hover:bg-[#ffc906] group-hover:text-[#040a18] transition-colors">
-                                        <span className="inline-block transform skew-x-12">
-                                            {tech.name}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="hidden sm:block w-[1px] h-8 bg-white/10"></div>
-                                <p className="text-gray-400 text-sm sm:text-base font-medium">
-                                    {tech.description[locale]}
-                                </p>
+                                <span className="inline-block transform skew-x-12">{tech.name}</span>
                             </motion.div>
                         ))}
                     </div>

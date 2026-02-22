@@ -169,15 +169,15 @@ const App = () => {
       </AnimatePresence>
 
       {/* Live Ticker Bar */}
-      <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-[#dc0000] z-[100] flex items-center overflow-hidden border-t border-black/20">
+      <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-[#040a18] z-[100] flex items-center overflow-hidden border-t border-white/10">
         <div className="flex gap-24 whitespace-nowrap animate-ticker py-1 px-4">
           {[1, 2, 3].map(i => (
-            <div key={i} className="flex gap-12 font-black italic text-[8px] sm:text-[10px] items-center uppercase tracking-tighter">
-              <span>{t("ticker.telemetry")}</span>
-              <span>GPS_POS: {mousePos.x}, {mousePos.y}</span>
-              <span>{t("ticker.systemStatus")}</span>
-              <span>{t("ticker.engineTemp")}</span>
-              <span>{t("ticker.lapTime")}</span>
+            <div key={i} className="flex gap-10 font-black italic text-[8px] sm:text-[10px] items-center uppercase tracking-tighter">
+              <span className="text-[#dc0000]">{t("ticker.telemetry")}</span>
+              <span className="text-[#ffc906]">{t("ticker.engineTemp")}</span>
+              <span className="text-white">{t("ticker.lapTime")}</span>
+              {/* <span className="text-[#dc0000]">{t("ticker.systemStatus")}</span>
+              <span className="text-[#ffc906]">GPS_POS: {mousePos.x}, {mousePos.y}</span> */}
             </div>
           ))}
         </div>

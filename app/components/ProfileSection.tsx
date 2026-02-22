@@ -32,9 +32,9 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                             <img
                                 src="/Kanitphong.gif"
                                 alt="Profile"
-                                className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
+                                // className="w-full h-full object-cover group-hover:grayscale-0 group-hover:scale-110"
+                                className="w-full h-full object-cover scale transition-all duration-700 group-hover:scale-0 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-[#dc0000]/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <div className="absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 border-b-2 border-l-2 border-[#dc0000]"></div>
                         <div className="mt-4 flex gap-4">

@@ -42,10 +42,10 @@ const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
                                     <img
                                         src={project.img}
                                         alt={project.title}
-                                        className="w-full h-full object-cover grayscale brightness-75 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-100"
+                                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-[#dc0000]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <div className="absolute top-0 left-0 bg-[#dc0000] text-white px-4 sm:px-6 py-1 sm:py-2 font-black italic transform -translate-x-1 -translate-y-1">
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <div className="absolute top-0 left-0 bg-[#ffc906] text-[#040a18] px-4 sm:px-6 py-1 sm:py-2 font-black italic transform -translate-x-1 -translate-y-1">
                                         {project.id}
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@ const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
                                     <span className="text-[#dc0000] font-black italic uppercase tracking-widest text-xs sm:text-sm">{project.category}</span>
                                     <div className="h-[1px] flex-grow bg-gray-300"></div>
                                 </div>
-                                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-none text-[#040a18] hover:text-[#dc0000] transition-colors">
+                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase tracking-tighter leading-none text-[#040a18] hover:text-[#dc0000] transition-colors">
                                     {project.title}
                                 </h3>
                                 <p className="text-gray-600 text-base sm:text-lg font-medium leading-relaxed italic">

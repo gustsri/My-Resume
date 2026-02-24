@@ -250,6 +250,14 @@ const App = () => {
             exit={{ opacity: 0, y: '-100%' }}
             className="fixed inset-0 bg-[#040a18] z-[110] flex flex-col items-center justify-center gap-8 text-4xl font-black italic uppercase tracking-tighter"
           >
+            {/* Close Button Inside Menu */}
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-6 right-6 p-2 text-white/50 hover:text-white transition-colors"
+            >
+              <X size={32} />
+            </button>
+
             {/* Mobile Language Toggle */}
             <div className="flex items-center transform -skew-x-12 border border-white/20 overflow-hidden mb-4">
               <button

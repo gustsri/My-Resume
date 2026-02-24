@@ -47,22 +47,22 @@ export default function ContactPage() {
         {
             nameKey: "contactPage.github",
             icon: <Github size={28} />,
-            value: "github.com/gustsri",
+            value: "gustsri",
             href: "https://github.com/gustsri",
             color: "bg-[#181717] group-hover:text-[#181717]", // GitHub gray/black
         },
         {
             nameKey: "contactPage.linkedin",
             icon: <Linkedin size={28} />,
-            value: "linkedin.com/in/kanitphong-gust/",
+            value: "Kanitphong Gust",
             href: "https://www.linkedin.com/in/kanitphong-gust/",
             color: "bg-[#0A66C2] group-hover:text-[#0A66C2]", // LinkedIn blue
         },
         {
             nameKey: "contactPage.facebook",
             icon: <Facebook size={28} />,
-            value: "facebook.com/yourusername",
-            href: "https://facebook.com/yourusername",
+            value: "Gus Kanitphong Sricharoen",
+            href: "https://web.facebook.com/gus.kanitphong.sricharoen",
             color: "bg-[#1877F2] group-hover:text-[#1877F2]", // Facebook blue
         },
         {

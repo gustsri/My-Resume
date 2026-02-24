@@ -5,11 +5,7 @@ import { motion } from 'framer-motion';
 import Reveal from './Reveal';
 import { useLanguage } from '../context/LanguageContext';
 
-interface ProfileSectionProps {
-    scrollToNext: (e: React.MouseEvent, currentId: string) => void;
-}
-
-const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
+const ProfileSection = () => {
     const { t } = useLanguage();
 
     const infoItems = [
@@ -19,7 +15,7 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
     ];
 
     return (
-        <section id="profile" className="py-20 sm:py-24 px-6 border-y border-gray-200 bg-white cursor-pointer" onClick={(e) => scrollToNext(e, 'profile')}>
+        <section id="profile" className="py-20 sm:py-24 px-6 border-y border-gray-200 bg-white">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:grid md:grid-cols-4 gap-12 items-start">
                     <motion.div
@@ -37,10 +33,6 @@ const ProfileSection = ({ scrollToNext }: ProfileSectionProps) => {
                             />
                         </div>
                         <div className="absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 border-b-2 border-l-2 border-[#dc0000]"></div>
-                        <div className="mt-4 flex gap-4">
-                            <div className="bg-[#dc0000] text-white px-3 py-1 font-bold text-[10px] transform -skew-x-12 uppercase">Rank: Pro</div>
-                            <div className="bg-[#040a18] text-white px-3 py-1 font-bold text-[10px] transform -skew-x-12 uppercase">Sector 1</div>
-                        </div>
                     </motion.div>
 
                     <div className="md:col-span-3 space-y-8">

@@ -4,7 +4,7 @@ export const translations = {
         nav: {
             profile: "PROFILE",
             skills: "SKILLS",
-            garage: "GARAGE",
+            projects: "PROJECTS",
             contact: "CONTACT",
         },
 
@@ -29,7 +29,7 @@ export const translations = {
 
         // Profile Section
         profile: {
-            sectionLabel: "Driver Profile & Bio",
+            sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
             // headingEnd: "PERFORMANCE.",
@@ -71,7 +71,7 @@ export const translations = {
 
         // Footer
         footer: {
-            name: "Kanitphong 2026",
+            name: "KANITPHONG 2026",
             version: "VER: 1.0.0 // STATUS: OPTIMIZED",
         },
 
@@ -131,7 +131,7 @@ export const translations = {
         nav: {
             profile: "โปรไฟล์",
             skills: "ทักษะ",
-            garage: "ผลงาน",
+            projects: "ผลงาน",
             contact: "ติดต่อ",
         },
 
@@ -156,7 +156,7 @@ export const translations = {
 
         // Profile Section
         profile: {
-            sectionLabel: "Driver Profile & Bio",
+            sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
             bio: "ตอนนี้กำลังเรียนอยู่ชั้นปีที่ 4 คณะไอที สจล. (KMITL) เน้นความสนใจไปที่สาย Software Development และ System Analysis ครับ เคยมีประสบการณ์ทำเว็บแอปฯ แบบ Full-stack ตั้งแต่การคุย Requirement ไปจนถึงการเขียนโค้ดและใช้งานจริง ส่วนตัวชอบงานออกแบบระบบและวางโครงสร้างฐานข้อมูล (ERD) และเป็นคนที่ชอบอัปเดตเทคโนโลยีใหม่ๆ เพื่อเอามาประยุกต์สร้างระบบให้ทำงานได้ดีและตอบโจทย์ที่สุด",
@@ -197,7 +197,7 @@ export const translations = {
 
         // Footer
         footer: {
-            name: "Kanitphong 2026",
+            name: "KANITPHONG 2026",
             version: "VER: 1.0.0 // สถานะ: พร้อมใช้งาน",
         },
 

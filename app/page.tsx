@@ -21,6 +21,7 @@ import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 import PageStyles from './components/PageStyles';
 import { useLanguage } from './context/LanguageContext';
+import { projects } from './projects/projectData';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -96,26 +97,10 @@ const App = () => {
     }, 300);
   };
 
-  const sectionOrder = ['hero', 'profile', 'skills', 'garage', 'contact'];
-
-  const scrollToNext = (e: React.MouseEvent, currentId: string) => {
-    const target = e.target as HTMLElement;
-    if (target.closest('button, a, input, textarea, select')) return;
-
-    const currentIndex = sectionOrder.indexOf(currentId);
-    if (currentIndex < sectionOrder.length - 1) {
-      const nextId = sectionOrder[currentIndex + 1];
-      const element = document.getElementById(nextId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
-
   const navItems = [
     { id: "profile", label: t("nav.profile") },
     { id: "skills", label: t("nav.skills") },
-    { id: "garage", label: t("nav.garage") },
+    { id: "projects", label: t("nav.projects") },
     { id: "contact", label: t("nav.contact") },
   ];
 
@@ -170,14 +155,15 @@ const App = () => {
 
       {/* Live Ticker Bar */}
       <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-[#040a18] z-[100] flex items-center overflow-hidden border-t border-white/10">
-        <div className="flex gap-24 whitespace-nowrap animate-ticker py-1 px-4">
-          {[1, 2, 3].map(i => (
-            <div key={i} className="flex gap-10 font-black italic text-[8px] sm:text-[10px] items-center uppercase tracking-tighter">
-              <span className="text-[#dc0000]">{t("ticker.telemetry")}</span>
-              <span className="text-[#ffc906]">{t("ticker.engineTemp")}</span>
-              <span className="text-white">{t("ticker.lapTime")}</span>
-              {/* <span className="text-[#dc0000]">{t("ticker.systemStatus")}</span>
-              <span className="text-[#ffc906]">GPS_POS: {mousePos.x}, {mousePos.y}</span> */}
+        <div className="flex whitespace-nowrap animate-ticker py-1 px-4 w-max">
+          {/* We duplicate the map 2 times to ensure seamless infinite scrolling */}
+          {[1, 2, 3, 4].map((dupIdx) => (
+            <div key={dupIdx} className="flex gap-16 pr-16 font-black italic text-[9px] sm:text-[11px] items-center uppercase tracking-tighter">
+              {projects.map((p, pIdx) => (
+                <span key={`${dupIdx}-${p.id}`} className={pIdx % 2 === 0 ? "text-[#ffc906]" : "text-white"}>
+                  <span className="text-[#dc0000] mr-2">/</span> {p.title}
+                </span>
+              ))}
             </div>
           ))}
         </div>
@@ -281,19 +267,19 @@ const App = () => {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <HeroSection scrollTo={scrollTo} scrollToNext={scrollToNext} />
+      <HeroSection scrollTo={scrollTo} />
 
       {/* Profile Section */}
-      <ProfileSection scrollToNext={scrollToNext} />
+      <ProfileSection />
 
       {/* Skills Section */}
-      <SkillsSection skillGroups={skillGroups} scrollToNext={scrollToNext} />
+      <SkillsSection skillGroups={skillGroups} />
 
       {/* The Garage (Alternating) */}
-      <GarageSection scrollToNext={scrollToNext} />
+      <GarageSection />
 
       {/* Contact Section */}
-      <ContactSection scrollToNext={scrollToNext} />
+      <ContactSection />
 
       {/* Footer */}
       <FooterSection />

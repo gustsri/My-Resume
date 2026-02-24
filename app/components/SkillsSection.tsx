@@ -14,14 +14,13 @@ interface SkillGroup {
 
 interface SkillsSectionProps {
     skillGroups: SkillGroup[];
-    scrollToNext: (e: React.MouseEvent, currentId: string) => void;
 }
 
-const SkillsSection = ({ skillGroups, scrollToNext }: SkillsSectionProps) => {
+const SkillsSection = ({ skillGroups }: SkillsSectionProps) => {
     const { t } = useLanguage();
 
     return (
-        <section id="skills" className="bg-[#040a18] py-20 sm:py-28 border-b border-white/5 cursor-pointer" onClick={(e) => scrollToNext(e, 'skills')}>
+        <section id="skills" className="bg-[#040a18] py-20 sm:py-28 border-b border-white/5">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header */}

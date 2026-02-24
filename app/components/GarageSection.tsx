@@ -1,21 +1,18 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { projects } from '../projects/projectData';
+import { motion, AnimatePresence } from 'framer-motion';
+import { projects, Project } from '../projects/projectData';
 import Reveal from './Reveal';
 import { useLanguage } from '../context/LanguageContext';
+import ProjectModal from './ProjectModal';
 
-interface GarageSectionProps {
-    scrollToNext: (e: React.MouseEvent, currentId: string) => void;
-}
-
-const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
+const GarageSection = () => {
     const { locale, t } = useLanguage();
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     return (
-        <section id="garage" className="py-20 sm:py-24 px-6 bg-white overflow-hidden cursor-pointer" onClick={(e) => scrollToNext(e, 'garage')}>
+        <section id="garage" className="py-20 sm:py-24 px-6 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <Reveal>
                     <div className="mb-16 sm:mb-20">
@@ -24,69 +21,52 @@ const GarageSection = ({ scrollToNext }: GarageSectionProps) => {
                     </div>
                 </Reveal>
 
-                <div className="space-y-24 sm:space-y-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
                     {projects.map((project, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className={`flex flex-col md:flex-row gap-8 sm:gap-12 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                            initial={{ y: 50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="bg-gray-50 border border-gray-200 p-8 sm:p-10 relative group hover:border-[#dc0000]/30 transition-all flex flex-col justify-between"
                         >
-                            {/* Image Column */}
-                            <motion.div
-                                initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="w-full md:w-1/2 relative group"
-                            >
-                                <div className="aspect-[16/9] overflow-hidden border border-gray-200 relative">
-                                    <img
-                                        src={project.img}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <div className="absolute top-0 left-0 bg-[#ffc906] text-[#040a18] px-4 sm:px-6 py-1 sm:py-2 font-black italic transform -translate-x-1 -translate-y-1">
-                                        {project.id}
-                                    </div>
-                                </div>
-                                <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full border border-gray-200 pointer-events-none group-hover:border-[#dc0000]/20 transition-colors"></div>
-                            </motion.div>
+                            <div className="absolute top-0 left-0 w-1 h-0 bg-[#dc0000] group-hover:h-full transition-all duration-300"></div>
 
-                            {/* Text Column */}
-                            <motion.div
-                                initial={{ x: index % 2 === 0 ? 100 : -100, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="w-full md:w-1/2 space-y-4 sm:space-y-6"
-                            >
+                            <div className="space-y-4 sm:space-y-6 flex-grow">
                                 <div className="flex items-center gap-3">
+                                    <div className="bg-[#ffc906] text-[#040a18] px-3 py-1 font-black italic transform -skew-x-12 text-sm">{project.id}</div>
                                     <span className="text-[#dc0000] font-black italic uppercase tracking-widest text-xs sm:text-sm">{project.category}</span>
-                                    <div className="h-[1px] flex-grow bg-gray-300"></div>
+                                    <div className="h-[1px] flex-grow bg-gray-300 hidden sm:block"></div>
                                 </div>
-                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase tracking-tighter leading-none text-[#040a18] hover:text-[#dc0000] transition-colors">
+                                <h3 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tighter leading-none text-[#040a18] group-hover:text-[#dc0000] transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 text-base sm:text-lg font-medium leading-relaxed italic">
+                                <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed italic line-clamp-3">
                                     &quot;{project.description[locale]}&quot;
                                 </p>
                                 <div className="flex flex-wrap gap-2 pt-2">
                                     {project.tags.map((tag, i) => (
-                                        <span key={i} className="text-[9px] sm:text-[10px] border border-gray-300 px-2 sm:px-3 py-1 uppercase font-bold tracking-widest bg-gray-100 text-gray-700">{tag}</span>
+                                        <span key={i} className="text-[9px] sm:text-[10px] border border-gray-300 px-2 sm:px-3 py-1 uppercase font-bold tracking-widest bg-white text-gray-700">{tag}</span>
                                     ))}
                                 </div>
-                                <div className="pt-4">
-                                    <Link href={`/projects/${project.id}`}>
-                                        <span className="flex items-center gap-2 group/btn bg-[#040a18] text-white px-6 sm:px-8 py-2.5 sm:py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-[#dc0000] hover:text-white transition-all active:scale-95 inline-flex">
-                                            {t("garage.viewProject")} <ArrowUpRight size={18} />
-                                        </span>
-                                    </Link>
-                                </div>
-                            </motion.div>
-                        </div>
+                            </div>
+
+                            <div className="pt-8 mt-auto">
+                                <button onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }} className="w-full">
+                                    <span className="flex items-center justify-center gap-2 group/btn bg-[#040a18] text-white w-full py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-[#dc0000] hover:text-white transition-all active:scale-95">
+                                        {t("garage.viewProject")} <ArrowUpRight size={18} />
+                                    </span>
+                                </button>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
+
+            <AnimatePresence>
+                {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+            </AnimatePresence>
         </section>
     );
 };

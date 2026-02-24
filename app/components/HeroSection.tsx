@@ -6,14 +6,13 @@ import { useLanguage } from '../context/LanguageContext';
 
 interface HeroSectionProps {
     scrollTo: (id: string) => void;
-    scrollToNext: (e: React.MouseEvent, currentId: string) => void;
 }
 
-const HeroSection = ({ scrollTo, scrollToNext }: HeroSectionProps) => {
+const HeroSection = ({ scrollTo }: HeroSectionProps) => {
     const { t } = useLanguage();
 
     return (
-        <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden px-4 cursor-pointer" onClick={(e) => scrollToNext(e, 'hero')}>
+        <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden px-4">
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.1 }}

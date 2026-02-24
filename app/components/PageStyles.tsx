@@ -94,7 +94,9 @@ const PageStyles = () => {
       }
 
       @media (min-width: 768px) {
-        * { cursor: none !important; }
+        body:not(.modal-open) * { cursor: none !important; }
+        .project-modal-container * { cursor: auto !important; }
+        .project-modal-container button, .project-modal-container a { cursor: pointer !important; }
       }
     `}} />
   );

@@ -51,11 +51,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     useEffect(() => {
         if (project) {
             document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
         } else {
             document.body.style.overflow = 'unset';
+            document.body.classList.remove('modal-open');
         }
         return () => {
             document.body.style.overflow = 'unset';
+            document.body.classList.remove('modal-open');
         };
     }, [project]);
 
@@ -71,7 +74,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6 md:p-12"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6 md:p-12 project-modal-container"
             onClick={onClose}
         >
             <motion.div
@@ -137,9 +140,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 className="flex flex-wrap gap-6 sm:gap-10"
                             >
                                 {[
-                                    { label: t("projectDetail.roleLabel") || "Role", value: project.role[locale] },
-                                    { label: t("projectDetail.durationLabel") || "Duration", value: project.duration[locale] },
-                                    { label: t("projectDetail.statusLabel") || "Status", value: project.status },
+                                    { label: "Role", value: project.role[locale] },
+                                    { label: "Duration", value: project.duration[locale] },
+                                    { label: "Status", value: project.status },
                                 ].map((meta, i) => (
                                     <div
                                         key={i}
@@ -158,22 +161,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </section>
 
                     {/* Description Section */}
-                    <section className="py-12 sm:py-16 px-6 sm:px-10 border-y border-white/10 bg-white/5">
+                    <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-gray-200 bg-white">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                             <div className="md:col-span-1">
-                                <div className="flex items-center gap-3 mb-4 opacity-70">
-                                    <Radio size={14} className="text-[#ffc906]" />
-                                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase italic text-[#ffc906]">
-                                        {t("projectDetail.raceBrief") || "BRIEF"}
+                                <div className="flex items-center gap-3 mb-4 opacity-50">
+                                    <Radio size={14} className="text-[#040a18]" />
+                                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase italic text-[#040a18]">
+                                        Race Brief
                                     </span>
                                 </div>
-                                <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-white">
-                                    {t("projectDetail.projectOverview") || "PROJECT OVERVIEW"}<br />
-                                    <span className="text-[#dc0000]">{t("projectDetail.overviewAccent") || "."}</span>
+                                <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-[#040a18]">
+                                    PROJECT OVERVIEW<br />
+                                    <span className="text-[#dc0000]">.</span>
                                 </h2>
                             </div>
                             <div className="md:col-span-2">
-                                <p className="text-white/80 text-lg sm:text-xl leading-relaxed font-medium">
+                                <p className="text-gray-600 text-lg sm:text-xl leading-relaxed font-medium">
                                     {project.longDescription[locale]}
                                 </p>
                             </div>
@@ -181,20 +184,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </section>
 
                     {/* Features Section */}
-                    <section className="py-12 sm:py-16 px-6 sm:px-10 bg-[#0a122c] relative overflow-hidden border-t border-white/5">
+                    <section className="py-12 sm:py-16 px-6 sm:px-10 bg-white relative overflow-hidden border-t border-gray-200">
                         <div className="relative z-10">
                             <div className="mb-10 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
                                 <div>
-                                    <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                                        <Gauge size={14} /> {t("projectDetail.performanceSpecs") || "SPECS"}
+                                    <p className="text-[#dc0000] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
+                                        <Gauge size={14} />Specs
                                     </p>
-                                    <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter">
-                                        {t("projectDetail.keyFeatures") || "KEY FEATURES"}
+                                    <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-[#040a18]">
+                                        KEY FEATURES
                                     </h2>
                                 </div>
                                 <div className="flex gap-2 opacity-80 mb-2">
                                     <div className="w-8 h-2 bg-[#dc0000] transform -skew-x-12"></div>
-                                    <div className="w-8 h-2 bg-[#0a122c] border border-white/10 transform -skew-x-12"></div>
+                                    <div className="w-8 h-2 bg-[#040a18] border border-gray-200 transform -skew-x-12"></div>
                                     <div className="w-4 h-2 bg-[#ffc906] transform -skew-x-12"></div>
                                 </div>
                             </div>
@@ -203,18 +206,18 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 {project.features[locale].map((feature: string, index: number) => (
                                     <div
                                         key={index}
-                                        className="bg-[#040a18] border border-white/5 p-6 relative overflow-hidden group hover:border-[#ffc906]/30 transition-all shadow-lg"
+                                        className="bg-white border border-gray-200 p-6 relative overflow-hidden group hover:border-[#dc0000] transition-all shadow-sm"
                                     >
                                         <div className="absolute top-0 left-0 w-1 h-full bg-[#dc0000] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                                         <div className="flex items-start gap-4 sm:gap-5 relative z-10">
-                                            <div className="w-10 h-10 bg-[#040a18] border border-white/10 flex-shrink-0 flex items-center justify-center transform -skew-x-12 group-hover:bg-[#dc0000] group-hover:border-[#dc0000] transition-colors text-white/50 group-hover:text-white mt-1 shadow-sm">
+                                            <div className="w-10 h-10 bg-gray-50 border border-gray-200 flex-shrink-0 flex items-center justify-center transform -skew-x-12 group-hover:bg-[#dc0000] group-hover:border-[#dc0000] transition-colors text-gray-400 group-hover:text-white mt-1 shadow-sm">
                                                 <CheckCircle2 size={18} className="transform skew-x-12" />
                                             </div>
                                             <div>
-                                                <span className="text-[10px] text-[#ffc906] font-mono uppercase tracking-widest block mb-1">
+                                                <span className="text-[10px] text-[#dc0000] font-mono uppercase tracking-widest block mb-1">
                                                     SPEC_{String(index + 1).padStart(2, "0")}
                                                 </span>
-                                                <p className="text-sm sm:text-base font-medium text-white/80 group-hover:text-white transition-colors leading-relaxed">
+                                                <p className="text-sm sm:text-base font-medium text-gray-600 group-hover:text-[#040a18] transition-colors leading-relaxed">
                                                     {feature}
                                                 </p>
                                             </div>
@@ -226,15 +229,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </section>
 
                     {/* Tech Stack Section */}
-                    <section className="py-12 sm:py-16 px-6 sm:px-10 bg-white border-y border-gray-200 relative overflow-hidden">
+                    <section className="py-12 sm:py-16 px-6 sm:px-10 bg-white border-t border-gray-200 relative overflow-hidden">
                         <div className="relative z-10">
                             <div className="mb-10 sm:mb-12">
                                 <p className="text-[#dc0000] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                                    <Cpu size={14} /> {t("projectDetail.engineComponents") || "COMPONENTS"}
+                                    <Cpu size={14} /> Components
                                 </p>
                                 <div className="flex items-center gap-6">
                                     <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-[#040a18]">
-                                        {t("projectDetail.techStack") || "TECH STACK"}
+                                        TECH STACK
                                     </h2>
                                     <div className="hidden sm:block flex-grow h-[1px] bg-gradient-to-r from-black/10 to-transparent"></div>
                                 </div>
@@ -259,10 +262,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                     {/* CTA Section */}
                     <section className="bg-[#0a122c] py-16 relative overflow-hidden">
+                        <div className="absolute inset-0 opacity-10 pointer-events-none checkered-bg"></div>
                         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                             <Flag className="mx-auto mb-6 w-12 h-12 text-white" />
                             <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter mb-8 leading-none">
-                                {t("projectDetail.interestedHeading1") || "INTERESTED IN"}<br />{t("projectDetail.interestedHeading2") || "THIS PROJECT?"}
+                                INTERESTED IN<br />THIS PROJECT?
                             </h2>
                             <button
                                 onClick={() => {
@@ -274,7 +278,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 }}
                                 className="bg-[#dc0000] text-white px-8 py-4 text-base font-black italic uppercase tracking-widest hover:bg-[#ffc906] hover:text-[#040a18] transition-all transform -skew-x-12 shadow-2xl active:scale-95"
                             >
-                                {t("projectDetail.contactMe") || "CONTACT ME"}
+                                CONTACT ME
                             </button>
                         </div>
                     </section>

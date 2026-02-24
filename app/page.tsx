@@ -97,6 +97,22 @@ const App = () => {
     }, 300);
   };
 
+  const sectionOrder = ['hero', 'profile', 'skills', 'garage', 'contact'];
+
+  const scrollToNext = (e: React.MouseEvent, currentId: string) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('button, a, input, textarea, select')) return;
+
+    const currentIndex = sectionOrder.indexOf(currentId);
+    if (currentIndex < sectionOrder.length - 1) {
+      const nextId = sectionOrder[currentIndex + 1];
+      const element = document.getElementById(nextId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   const navItems = [
     { id: "profile", label: t("nav.profile") },
     { id: "skills", label: t("nav.skills") },
@@ -267,19 +283,19 @@ const App = () => {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <HeroSection scrollTo={scrollTo} />
+      <HeroSection scrollTo={scrollTo} scrollToNext={scrollToNext} />
 
       {/* Profile Section */}
-      <ProfileSection />
+      <ProfileSection scrollToNext={scrollToNext} />
 
       {/* Skills Section */}
-      <SkillsSection skillGroups={skillGroups} />
+      <SkillsSection skillGroups={skillGroups} scrollToNext={scrollToNext} />
 
       {/* The Garage (Alternating) */}
-      <GarageSection />
+      <GarageSection scrollToNext={scrollToNext} />
 
       {/* Contact Section */}
-      <ContactSection />
+      <ContactSection scrollToNext={scrollToNext} />
 
       {/* Footer */}
       <FooterSection />

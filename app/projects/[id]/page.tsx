@@ -49,15 +49,15 @@ export default function ProjectDetail() {
         return (
             <div className="min-h-screen bg-[#040a18] text-white flex items-center justify-center">
                 <div className="text-center space-y-6">
-                    <h1 className="text-6xl font-black italic text-[#dc0000]">{t("projectDetail.dnf")}</h1>
+                    <h1 className="text-6xl font-black italic text-[#dc0000]">DNF</h1>
                     <p className="text-zinc-400 text-lg uppercase tracking-widest font-bold">
-                        {t("projectDetail.notFound")}
+                        Project not found
                     </p>
                     <button
                         onClick={() => router.push("/#garage")}
                         className="bg-[#dc0000] text-white px-8 py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-[#ffc906] hover:text-[#040a18] transition-all"
                     >
-                        {t("projectDetail.backToGarage")}
+                        Back to Garage
                     </button>
                 </div>
             </div>
@@ -111,7 +111,7 @@ export default function ProjectDetail() {
                             <ArrowLeft size={20} className="transform skew-x-12" />
                         </div>
                         <span className="text-xs font-black tracking-[0.2em] uppercase hidden sm:inline opacity-60 group-hover:opacity-100 transition-opacity">
-                            {t("projectDetail.backToGarage")}
+                            Back to Garage
                         </span>
                     </motion.button>
 
@@ -204,9 +204,9 @@ export default function ProjectDetail() {
                         className="flex flex-wrap gap-6 sm:gap-10 mb-12"
                     >
                         {[
-                            { label: t("projectDetail.roleLabel"), value: project.role[locale] },
-                            { label: t("projectDetail.durationLabel"), value: project.duration[locale] },
-                            { label: t("projectDetail.statusLabel"), value: project.status },
+                            { label: "Role", value: project.role[locale] },
+                            { label: "Duration", value: project.duration[locale] },
+                            { label: "Status", value: project.status },
                         ].map((meta, i) => (
                             <div
                                 key={i}
@@ -266,12 +266,12 @@ export default function ProjectDetail() {
                             <div className="flex items-center gap-3 mb-4 opacity-50">
                                 <Radio size={14} className="text-[#040a18]" />
                                 <span className="text-[10px] font-bold tracking-[0.3em] uppercase italic text-[#040a18]">
-                                    {t("projectDetail.raceBrief")}
+                                    Race Brief
                                 </span>
                             </div>
                             <h2 className="text-3xl sm:text-4xl font-black italic uppercase tracking-tighter text-[#040a18]">
-                                {t("projectDetail.projectOverview")}<br />
-                                <span className="text-[#dc0000]">{t("projectDetail.overviewAccent")}</span>
+                                PROJECT OVERVIEW<br />
+                                <span className="text-[#dc0000]">.</span>
                             </h2>
                         </motion.div>
                     </div>
@@ -303,10 +303,10 @@ export default function ProjectDetail() {
                     >
                         <div>
                             <p className="text-[#ffc906] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                                <Gauge size={14} /> {t("projectDetail.performanceSpecs")}
+                                <Gauge size={14} /> Performance Specs
                             </p>
                             <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter">
-                                {t("projectDetail.keyFeatures")}
+                                KEY FEATURES
                             </h2>
                         </div>
                         <div className="flex gap-2 opacity-80 mb-2">
@@ -363,11 +363,11 @@ export default function ProjectDetail() {
                         className="mb-12 sm:mb-16"
                     >
                         <p className="text-[#dc0000] font-bold tracking-[0.3em] uppercase text-[10px] mb-2 italic flex items-center gap-2">
-                            <Cpu size={14} /> {t("projectDetail.engineComponents")}
+                            <Cpu size={14} /> Engine Components
                         </p>
                         <div className="flex items-center gap-6">
                             <h2 className="text-4xl sm:text-5xl font-black italic uppercase tracking-tighter text-[#040a18]">
-                                {t("projectDetail.techStack")}
+                                TECH STACK
                             </h2>
                             <div className="hidden sm:block flex-grow h-[1px] bg-gradient-to-r from-black/10 to-transparent"></div>
                         </div>
@@ -405,20 +405,20 @@ export default function ProjectDetail() {
                         <Flag className="mx-auto mb-6 w-14 h-14 sm:w-16 sm:h-16" />
                     </motion.div>
                     <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter mb-8 leading-none">
-                        {t("projectDetail.interestedHeading1")}<br />{t("projectDetail.interestedHeading2")}
+                        INTERESTED IN<br />THIS PROJECT?
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
                             onClick={() => router.push("/contact")}
                             className="bg-[#dc0000] text-white px-10 py-5 text-base font-black italic uppercase tracking-widest hover:bg-[#ffc906] hover:text-[#040a18] transition-all transform -skew-x-12 shadow-2xl active:scale-95"
                         >
-                            {t("projectDetail.contactMe")}
+                            CONTACT ME
                         </button>
                         <button
                             onClick={() => router.push("/#garage")}
                             className="border-4 border-[#ffc906] text-[#ffc906] px-10 py-5 text-base font-black italic uppercase tracking-widest hover:bg-[#ffc906] hover:text-[#040a18] transition-all transform -skew-x-12 active:scale-95"
                         >
-                            {t("projectDetail.viewOther")}
+                            View Other Projects
                         </button>
                     </div>
                 </div>

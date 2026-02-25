@@ -8,31 +8,11 @@ export const translations = {
             contact: "CONTACT",
         },
 
-        // Preloader
-        preloader: {
-            warming: "WARMING UP ENGINES...",
-        },
-
-        // Hero Section
-        hero: {
-            badge: "Live Signal Connection Success",
-            title1: "FULL",
-            title2: "THROTTLE",
-            title3: "PROJECTS",
-            driverLabel: "Driver",
-            driverName: "Kanitphong S.",
-            positionLabel: "Position",
-            position1: "Fullstack Developer",
-            position2: "System Analyst",
-            pushToStart: "Push to start",
-        },
-
         // Profile Section
         profile: {
             sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
-            // headingEnd: "PERFORMANCE.",
             bio: "Final-year Information Technology student at KMITL focusing on Software Development and System Analysis. Experienced in developing web applications from requirement analysis to full-stack implementation. Passionate about designing practical systems and database models (ERD) while continuously learning new technologies to build efficient solutions.",
             currentTeam: "Education",
             currentTeamValue: "King Mongkut’s Institute of Technology Ladkrabang (KMITL)",
@@ -75,14 +55,6 @@ export const translations = {
             version: "VER: 1.0.0 // STATUS: READY",
         },
 
-        // Ticker Bar
-        ticker: {
-            telemetry: "LIVE TELEMETRY: ACTIVE",
-            systemStatus: "SYSTEM_STATUS: NO_ERRORS",
-            engineTemp: "ENGINE_TEMP: OPTIMIZED",
-            lapTime: "LAP_TIME: 1:12.332",
-        },
-
         // Contact Page
         contactPage: {
             badge: "Communication channels online",
@@ -103,27 +75,6 @@ export const translations = {
                 downloadBtn: "Download Resume (PDF)",
             },
         },
-
-        // Project Detail Page
-        projectDetail: {
-            backToGarage: "Back to Garage",
-            dnf: "DNF",
-            notFound: "Project not found",
-            raceBrief: "Race Brief",
-            projectOverview: "PROJECT",
-            overviewAccent: "OVERVIEW",
-            performanceSpecs: "Performance Specs",
-            keyFeatures: "KEY_FEATURES",
-            engineComponents: "Engine Components",
-            techStack: "TECH_STACK",
-            interestedHeading1: "INTERESTED IN",
-            interestedHeading2: "THIS PROJECT?",
-            contactMe: "Contact Me",
-            viewOther: "View Other Projects",
-            roleLabel: "Role",
-            durationLabel: "Duration",
-            statusLabel: "Status",
-        },
     },
 
     th: {
@@ -133,25 +84,6 @@ export const translations = {
             skills: "ทักษะ",
             projects: "ผลงาน",
             contact: "ติดต่อ",
-        },
-
-        // Preloader
-        preloader: {
-            warming: "WARMING UP ENGINES...",
-        },
-
-        // Hero Section
-        hero: {
-            badge: "Live Signal Connection Success",
-            title1: "FULL",
-            title2: "THROTTLE",
-            title3: "PROJECTS",
-            driverLabel: "Driver",
-            driverName: "Kanitphong S.",
-            positionLabel: "Position",
-            position1: "Fullstack Developer",
-            position2: "System Analyst",
-            pushToStart: "Push to Start",
         },
 
         // Profile Section
@@ -201,14 +133,6 @@ export const translations = {
             version: "VER: 1.0.0 // สถานะ: พร้อมใช้งาน",
         },
 
-        // Ticker Bar
-        ticker: {
-            telemetry: "LIVE TELEMETRY: ACTIVE",
-            systemStatus: "SYSTEM_STATUS: NO_ERRORS",
-            engineTemp: "ENGINE_TEMP: OPTIMIZED",
-            lapTime: "LAP_TIME: 1:12.332",
-        },
-
         // Contact Page
         contactPage: {
             badge: "ช่องทางการสื่อสารพร้อมใช้งาน",
@@ -228,27 +152,6 @@ export const translations = {
                 description: "ดาวน์โหลด Resume ฉบับเต็มเพื่อดูโปรเจค ทักษะ และผลงานทั้งหมด",
                 downloadBtn: "ดาวน์โหลด Resume (PDF)",
             },
-        },
-
-        // Project Detail Page
-        projectDetail: {
-            backToGarage: "กลับไปที่ Garage",
-            dnf: "DNF",
-            notFound: "ไม่พบโปรเจกต์นี้",
-            raceBrief: "Race Brief",
-            projectOverview: "PROJECT",
-            overviewAccent: "OVERVIEW",
-            performanceSpecs: "Performance Specs",
-            keyFeatures: "KEY_FEATURES",
-            engineComponents: "Engine Components",
-            techStack: "TECH_STACK",
-            interestedHeading1: "INTERESTED IN",
-            interestedHeading2: "THIS PROJECT?",
-            contactMe: "ติดต่อฉัน",
-            viewOther: "ดูโปรเจกต์อื่น",
-            roleLabel: "บทบาท",
-            durationLabel: "ระยะเวลา",
-            statusLabel: "สถานะ",
         },
     },
 } as const;

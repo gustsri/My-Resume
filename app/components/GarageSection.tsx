@@ -1,72 +1,68 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { projects, Project } from '../projects/projectData';
+import { motion } from 'framer-motion';
+import { projects } from '../projects/projectData';
 import Reveal from './Reveal';
 import { useLanguage } from '../context/LanguageContext';
-import ProjectModal from './ProjectModal';
 
 const GarageSection = () => {
     const { locale, t } = useLanguage();
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     return (
-        <section id="garage" className="py-20 sm:py-24 px-6 bg-white overflow-hidden">
+        <section id="garage" className="py-20 sm:py-24 px-6 bg-[#f8f9fa] overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <Reveal>
-                    <div className="mb-16 sm:mb-20">
-                        <p className="text-[#dc0000] font-bold tracking-[0.2em] uppercase text-[10px] mb-2 italic">{t("garage.sectionLabel")}</p>
-                        <h2 className="text-4xl sm:text-6xl font-black italic uppercase tracking-tighter text-[#040a18]">{t("garage.heading")}</h2>
+                    <div className="mb-12 sm:mb-16">
+                        <p className="text-[#dc0000] font-bold tracking-widest uppercase text-xs mb-3">{t("garage.sectionLabel") || "PROJECTS"}</p>
+                        <h2 className="text-4xl sm:text-5xl font-black uppercase text-[#040a18]">{t("garage.heading") || "Latest Works"}</h2>
                     </div>
                 </Reveal>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ y: 50, opacity: 0 }}
+                            initial={{ y: 30, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-gray-50 border border-gray-200 p-8 sm:p-10 relative group hover:border-[#dc0000]/30 transition-all flex flex-col justify-between"
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 relative group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full"
                         >
-                            <div className="absolute top-0 left-0 w-1 h-0 bg-[#dc0000] group-hover:h-full transition-all duration-300"></div>
+                            <div className="absolute top-0 left-0 w-0 h-1 bg-[#dc0000] group-hover:w-full transition-all duration-500 rounded-t-2xl"></div>
 
-                            <div className="space-y-4 sm:space-y-6 flex-grow">
-                                <div className="flex items-center gap-3">
-                                    <div className="bg-[#ffc906] text-[#040a18] px-3 py-1 font-black italic transform -skew-x-12 text-sm">{project.id}</div>
-                                    <span className="text-[#dc0000] font-black italic uppercase tracking-widest text-xs sm:text-sm">{project.category}</span>
-                                    <div className="h-[1px] flex-grow bg-gray-300 hidden sm:block"></div>
-                                </div>
-                                <h3 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tighter leading-none text-[#040a18] group-hover:text-[#dc0000] transition-colors">
+                            <div className="space-y-4 sm:space-y-5 flex-grow">
+                                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight leading-tight text-[#040a18] group-hover:text-[#dc0000] transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed italic line-clamp-3">
-                                    &quot;{project.description[locale]}&quot;
+
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {project.description[locale]}
                                 </p>
-                                <div className="flex flex-wrap gap-2 pt-2">
-                                    {project.tags.map((tag, i) => (
-                                        <span key={i} className="text-[9px] sm:text-[10px] border border-gray-300 px-2 sm:px-3 py-1 uppercase font-bold tracking-widest bg-white text-gray-700">{tag}</span>
+
+                                <div className="flex flex-wrap gap-2 pt-1">
+                                    {project.techStack.map((tech, i) => (
+                                        <span key={i} className="text-[10px] sm:text-xs bg-gray-50 border border-gray-100 text-gray-600 px-3 py-1.5 rounded-full font-semibold">{tech}</span>
                                     ))}
+                                </div>
+
+                                <div className="pt-2">
+                                    <span className="text-xs font-bold uppercase tracking-wider text-[#dc0000]">
+                                        {project.category}
+                                    </span>
                                 </div>
                             </div>
 
-                            <div className="pt-8 mt-auto">
-                                <button onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }} className="w-full">
-                                    <span className="flex items-center justify-center gap-2 group/btn bg-[#040a18] text-white w-full py-3 font-black italic uppercase tracking-widest transform -skew-x-12 hover:bg-[#dc0000] hover:text-white transition-all active:scale-95">
-                                        {t("garage.viewProject")} <ArrowUpRight size={18} />
-                                    </span>
-                                </button>
+                            <div className="pt-6 mt-auto border-t border-gray-50">
+                                <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-[#040a18] hover:text-[#dc0000] transition-colors group/link">
+                                    {t("garage.viewProject") || "View project"}
+                                    <ArrowUpRight size={16} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                                </a>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
-
-            <AnimatePresence>
-                {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
-            </AnimatePresence>
         </section>
     );
 };

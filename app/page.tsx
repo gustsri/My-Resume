@@ -150,21 +150,7 @@ const App = () => {
         )}
       </AnimatePresence>
 
-      {/* Live Ticker Bar */}
-      <div className="fixed bottom-0 left-0 right-0 h-6 sm:h-8 bg-[#040a18] z-[100] flex items-center overflow-hidden border-t border-white/10">
-        <div className="flex whitespace-nowrap animate-ticker py-1 px-4 w-max">
-          {/* We duplicate the map 2 times to ensure seamless infinite scrolling */}
-          {[1, 2, 3, 4].map((dupIdx) => (
-            <div key={dupIdx} className="flex gap-16 pr-16 font-black italic text-[9px] sm:text-[11px] items-center uppercase tracking-tighter">
-              {projects.map((p, pIdx) => (
-                <span key={`${dupIdx}-${p.id}`} className={pIdx % 2 === 0 ? "text-[#ffc906]" : "text-white"}>
-                  <span className="text-[#dc0000] mr-2">/</span> {p.title}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+
 
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 border-b ${scrolled ? 'bg-[#040a18]/95 border-[#ffc906]/30 py-3 backdrop-blur-sm' : 'bg-transparent border-transparent py-6'}`}>

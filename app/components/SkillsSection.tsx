@@ -9,7 +9,6 @@ interface SkillGroup {
     category: string;
     icon: React.ReactNode;
     items: string[];
-    performance: string;
 }
 
 interface SkillsSectionProps {

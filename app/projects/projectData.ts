@@ -202,8 +202,8 @@ export const projects: Project[] = [
         tags: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Odoo"],
         img: "https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?q=80&w=800&auto=format&fit=crop",
         longDescription: {
-            th: "เปลี่ยนและปรับกระบวนการจัดทำงบประมาณแบบแมนนวลให้เป็นระบบบนเว็บเพื่อจัดการบันทึกรายรับและรายจ่าย รวมถึงการวางแผนและออกแบบโครงสร้างต่างๆ จาก flow การทำงานเดิมเพื่อช่วยเพิ่มประสิทธิภาพการทำงาน โดยมีแดชบอร์ดแบบเรียลไทม์สำหรับการติดตามงบประมาณที่ดียิ่งขึ้น ออกแบบ Database Schemas และ ERD Model เพื่อให้จัดเก็บข้อมูลได้อย่างเป็นระบบและรองรับการออกรายงานทางการเงิน พัฒนาและ Deploy เว็บแอปพลิเคชันโดยใช้ Next.js, Tailwind CSS, Node.js, PostgreSQL และ Odoo",
-            en: "Converted and improved a manual budgeting process into a web-based system to manage income and expense records. This included planning and designing system structures based on the original workflow to enhance operational efficiency. It features a real-time dashboard for better budget tracking. Designed database schemas and ERD models to ensure systematic data storage and support financial reporting. Developed and deployed the web application using Next.js, Tailwind CSS, Node.js, PostgreSQL, and Odoo.",
+            th: "เปลี่ยนและปรับกระบวนการจัดทำงบประมาณแบบแมนนวลให้เป็นระบบบนเว็บเพื่อจัดการบันทึกรายรับและรายจ่าย รวมถึงการวางแผนและออกแบบโครงสร้างต่างๆ จากการทำงานเดิมเพื่อช่วยเพิ่มประสิทธิภาพการทำงาน โดยมีแดชบอร์ดแบบเรียลไทม์สำหรับการติดตามงบประมาณที่ดียิ่งขึ้น ออกแบบ Database Schemas และ ERD Model เพื่อให้จัดเก็บข้อมูลได้อย่างเป็นระบบและรองรับการออกรายงานทางการเงิน",
+            en: "Converted and improved a manual budgeting process into a web-based system to manage income and expense records. This included planning and designing system structures based on the original workflow to enhance operational efficiency. It features a real-time dashboard for better budget tracking. Designed database schemas and ERD models to ensure systematic data storage and support financial reporting.",
         },
         features: {
             th: [

@@ -15,7 +15,7 @@ export const translations = {
 
         // Hero Section
         hero: {
-            badge: "Live race connection established",
+            badge: "Live Signal Connection Success",
             title1: "FULL",
             title2: "THROTTLE",
             title3: "PROJECTS",
@@ -72,7 +72,7 @@ export const translations = {
         // Footer
         footer: {
             name: "KANITPHONG 2026",
-            version: "VER: 1.0.0 // STATUS: OPTIMIZED",
+            version: "VER: 1.0.0 // STATUS: READY",
         },
 
         // Ticker Bar
@@ -142,16 +142,16 @@ export const translations = {
 
         // Hero Section
         hero: {
-            badge: "เชื่อมต่อสัญญาณ Live สำเร็จ",
+            badge: "Live Signal Connection Success",
             title1: "FULL",
             title2: "THROTTLE",
             title3: "PROJECTS",
-            driverLabel: "นักขับ",
+            driverLabel: "Driver",
             driverName: "Kanitphong S.",
-            positionLabel: "ตำแหน่ง",
+            positionLabel: "Position",
             position1: "Fullstack Developer",
             position2: "System Analyst",
-            pushToStart: "กดเพื่อเริ่ม",
+            pushToStart: "Push to Start",
         },
 
         // Profile Section
@@ -191,8 +191,8 @@ export const translations = {
         contact: {
             heading1: "REACH THE",
             heading2: "FINISH LINE",
-            hireMeBtn: "จ้างฉันเลย",
-            resumeBtn: "ดาวน์โหลด Resume",
+            hireMeBtn: "Hire Me Now",
+            resumeBtn: "Get Resume",
         },
 
         // Footer

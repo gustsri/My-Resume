@@ -54,36 +54,31 @@ const App = () => {
       id: "SYS_01",
       category: t("skills.frontend"),
       icon: <Monitor size={20} />,
-      items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
-      performance: "95%",
+      items: ["HTML", "CSS", "TypeScript", "React", "Next.js", "Tailwind CSS"]
     },
     {
       id: "SYS_02",
       category: t("skills.backend"),
       icon: <Server size={20} />,
-      items: ["Node.js", "Python", "PHP", "REST API", "Prisma"],
-      performance: "90%",
+      items: ["Node.js", "Python", "Django", "PHP", "REST API", "Prisma"]
     },
     {
       id: "SYS_03",
       category: t("skills.database"),
       icon: <Database size={20} />,
-      items: ["PostgreSQL", "MySQL", "NoSQL", "SQL"],
-      performance: "88%",
+      items: ["PostgreSQL", "MySQL", "MongoDB(NoSQL)", "SQL"]
     },
     {
       id: "SYS_04",
       category: t("skills.systems"),
       icon: <LayoutDashboard size={20} />,
-      items: ["Requirement Analysis", "ERD", "UML", "Workflow Design", "Requirement gathering"],
-      performance: "88%",
+      items: ["Requirement Gathering & Analysis", "UML Modeling", "Database Design (ERD)", "Workflow Design"]
     },
     {
       id: "SYS_05",
       category: t("skills.tools"),
       icon: <Wrench size={20} />,
-      items: ["Git", "Docker", "Postman", "VS Code", "AWS", "Antigravity"],
-      performance: "92%",
+      items: ["Git / GitHub", "Docker", "Postman", "AWS (Basic EC2, S3)", "DBeaver", "pgAdmin"]
     },
   ];
 
@@ -97,21 +92,7 @@ const App = () => {
     }, 300);
   };
 
-  const sectionOrder = ['hero', 'profile', 'skills', 'garage', 'contact'];
 
-  const scrollToNext = (e: React.MouseEvent, currentId: string) => {
-    const target = e.target as HTMLElement;
-    if (target.closest('button, a, input, textarea, select')) return;
-
-    const currentIndex = sectionOrder.indexOf(currentId);
-    if (currentIndex < sectionOrder.length - 1) {
-      const nextId = sectionOrder[currentIndex + 1];
-      const element = document.getElementById(nextId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
 
   const navItems = [
     { id: "profile", label: t("nav.profile") },
@@ -283,19 +264,19 @@ const App = () => {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <HeroSection scrollTo={scrollTo} scrollToNext={scrollToNext} />
+      <HeroSection scrollTo={scrollTo} />
 
       {/* Profile Section */}
-      <ProfileSection scrollToNext={scrollToNext} />
+      <ProfileSection />
 
       {/* Skills Section */}
-      <SkillsSection skillGroups={skillGroups} scrollToNext={scrollToNext} />
+      <SkillsSection skillGroups={skillGroups} />
 
       {/* The Garage (Alternating) */}
-      <GarageSection scrollToNext={scrollToNext} />
+      <GarageSection />
 
       {/* Contact Section */}
-      <ContactSection scrollToNext={scrollToNext} />
+      <ContactSection />
 
       {/* Footer */}
       <FooterSection />

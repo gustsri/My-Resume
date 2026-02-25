@@ -155,9 +155,6 @@ export default function ContactPage() {
                             className="flex items-center gap-2 cursor-pointer"
                             onClick={() => router.push("/")}
                         >
-                            <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">
-                                //
-                            </div>
                             <span className="font-black tracking-tighter text-xl italic hidden sm:inline">
                                 My Resume
                             </span>

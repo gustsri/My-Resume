@@ -175,7 +175,6 @@ const App = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-[#ffc906] text-[#040a18] flex items-center justify-center font-black italic transform -skew-x-12 text-sm">//</div>
             <span className="font-black tracking-tighter text-xl italic text-white drop-shadow-md">My Resume</span>
           </motion.div>
 

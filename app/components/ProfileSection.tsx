@@ -39,11 +39,11 @@ const ProfileSection = () => {
                         <Reveal>
                             <div className="flex items-center gap-4 opacity-70">
                                 <User size={16} className="text-[#0a122c]" />
-                                <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase italic text-[#0a122c]">{t("profile.sectionLabel")}</span>
+                                <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#0a122c]">{t("profile.sectionLabel")}</span>
                             </div>
                         </Reveal>
                         <Reveal delay={0.3}>
-                            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-tight text-center md:text-left text-[#040a18]">
+                            <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight text-center md:text-left text-[#040a18]">
                                 {t("profile.heading")} <span className="text-[#dc0000] text-shadow-red">{t("profile.headingAccent")}</span>
                             </h2>
                         </Reveal>
@@ -59,8 +59,8 @@ const ProfileSection = () => {
                                 {infoItems.map((item, i) => (
                                     <Reveal key={item.label} delay={0.5 + (i * 0.1)}>
                                         <div>
-                                            <h4 className="text-[#dc0000] font-bold uppercase text-[10px] sm:text-xs tracking-widest mb-1 italic">{item.label}</h4>
-                                            <p className="text-lg sm:text-xl font-bold italic uppercase tracking-tight text-[#040a18]">
+                                            <h4 className="text-[#dc0000] font-bold uppercase text-[10px] sm:text-xs tracking-wider mb-1 mt-2">{item.label}</h4>
+                                            <p className="text-lg sm:text-xl font-semibold tracking-tight text-[#040a18]">
                                                 {item.value}
                                             </p>
                                         </div>

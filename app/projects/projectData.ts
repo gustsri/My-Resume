@@ -176,98 +176,122 @@
 //     return projects.find((p) => p.id === id);
 // }
 export interface Project {
-    id: string;
-    title: string;
-    category: string;
-    description: { en: string; th: string };
-    githubUrl?: string;
-    features?: { en: string[]; th: string[] };
-    techStack: string[];
-    role: { en: string; th: string };
-    status: string;
+  id: string;
+  title: string;
+  category: string;
+  description: { en: string; th: string };
+  githubUrl?: string;
+  features?: { en: string[]; th: string[] };
+  techStack: string[];
+  status: string;
 }
 
 export const projects: Project[] = [
-    {
-        id: "01",
-        title: "Budget Preparation Support System",
-        category: "Full-stack Developer & System Analyst",
-        description: {
-            th: "เปลี่ยนและปรับกระบวนการจัดทำงบประมาณแบบแมนนวลให้เป็นระบบบนเว็บเพื่อจัดการบันทึกรายรับและรายจ่าย รวมถึงการวางแผนและออกแบบโครงสร้างต่างๆ จากการทำงานเดิมเพื่อช่วยเพิ่มประสิทธิภาพการทำงาน โดยมีแดชบอร์ดแบบเรียลไทม์สำหรับการติดตามงบประมาณที่ดียิ่งขึ้น ออกแบบ Database Schemas และ ERD Model เพื่อให้จัดเก็บข้อมูลได้อย่างเป็นระบบและรองรับการออกรายงานทางการเงิน",
-            en: "Converted and improved a manual budgeting process into a web-based system to manage income and expense records. This included planning and designing system structures based on the original workflow to enhance operational efficiency. It features a real-time dashboard for better budget tracking. Designed database schemas and ERD models to ensure systematic data storage and support financial reporting.",
-        },
-        githubUrl: "",
-        techStack: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Odoo"],
-        role: { th: "Full-stack Developer & System Analyst", en: "Full-stack Developer & System Analyst" },
-        status: "Ongoing",
+  {
+    "id": "01",
+    "title": "Budget Preparation Support System",
+    "category": "Full-stack Developer & System Analyst",
+    "description": {
+      "th": "พัฒนาระบบบนเว็บเพื่อทดแทนกระบวนการจัดทำงบประมาณแบบแมนนวล ช่วยจัดการบันทึกรายรับและรายจ่าย รวมถึงวางแผนและออกแบบโครงสร้างระบบจากกระบวนการทำงานเดิมเพื่อเพิ่มประสิทธิภาพการทำงานให้ดียิ่งขึ้น ระบบมีแดชบอร์ดแสดงผลแบบเรียลไทม์สำหรับการติดตามงบประมาณ พร้อมทั้งมีการออกแบบ Database Schema และ ERD Model เพื่อการจัดเก็บข้อมูลอย่างเป็นระบบและรองรับการออกรายงานทางการเงิน",
+      "en": "Transformed a manual budgeting process into a web-based system for managing income and expenses. Planned and designed the system architecture based on existing workflows to enhance operational efficiency. The system features a real-time dashboard for improved budget tracking, along with custom-designed database schemas and ERD models to ensure systematic data storage and support financial reporting."
     },
-    {
-        id: "02",
-        title: "Game-Vault",
-        category: "Full-stack Developer",
-        description: {
-            th: "ออกแบบแพลตฟอร์มค้นหาเกมที่ประกอบด้วยหน้ารายละเอียดเกม ระบบจัดการบัญชีผู้ใช้ และระบบคอมเมนต์แบบไดนามิก เชื่อมต่อ External API เพื่อดึงและแสดงข้อมูลเกมแบบครบถ้วน ทำให้ผู้ใช้ได้รับข้อมูลเกมที่อัปเดตล่าสุด พัฒนาเว็บแอปพลิเคชันด้วย Next.js, TypeScript, Tailwind CSS, Prisma และ PostgreSQL เพื่อให้ได้ UI ที่ตอบสนองได้ดี (Responsive)",
-            en: "Designed a game browsing platform featuring detailed game pages, user account management, and a dynamic commenting system. Integrated external APIs to fetch and display comprehensive game data, providing users with up-to-date gaming information. Developed the web application using Next.js, TypeScript, Tailwind CSS, Prisma, and PostgreSQL to ensure a responsive UI.",
-        },
-        githubUrl: "",
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-        role: { th: "Full-stack Developer", en: "Full-stack Developer" },
-        status: "Completed",
+    "githubUrl": "",
+    "techStack": [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "Odoo",
+    ],
+    "status": "Ongoing"
+  },
+  {
+    "id": "02",
+    "title": "Game-Vault",
+    "category": "Full-stack Developer",
+    "description": {
+      "th": "ออกแบบและพัฒนาแพลตฟอร์มค้นหาเกม ประกอบด้วยหน้ารายละเอียดเกม ระบบจัดการบัญชีผู้ใช้ และระบบคอมเมนต์แบบไดนามิก มีการเชื่อมต่อ External API เพื่อดึงและแสดงข้อมูลเกมอย่างครบถ้วน ทำให้ผู้ใช้ได้รับข้อมูลที่อัปเดตอยู่เสมอ",
+      "en": "Designed a game browsing platform featuring detailed game pages, user account management, and a dynamic commenting system. Integrated external APIs to fetch and display comprehensive game data, providing users with up-to-date information."
     },
-    {
-        id: "03",
-        title: "Accounting and Store Management System",
-        category: "Backend Developer & System Analyst",
-        description: {
-            th: "วิเคราะห์และกำหนด Requirement ของระบบเพื่อสร้างแพลตฟอร์มจัดการคลังสินค้าและพนักงานที่ออกแบบมาสำหรับธุรกิจขนาดเล็กโดยเฉพาะ พัฒนาฟีเจอร์ติดตามสินค้าคงคลังบนเว็บ เพื่อให้ผู้ใช้สามารถตรวจสอบระดับสต็อกและจัดการบัญชีพนักงานได้ พัฒนาระบบ Backend โดยใช้ Python, Django และ PostgreSQL",
-            en: "Analyzed and defined system requirements to build a custom inventory and employee management platform tailored for small businesses. Implemented a web-based inventory tracking feature, allowing users to monitor stock levels and manage employee accounts. Developed a backend using Python, Django, and PostgreSQL.",
-        },
-        githubUrl: "",
-        techStack: ["Python", "Django", "PostgreSQL"],
-        role: { th: "Backend Developer & System Analyst", en: "Backend Developer & System Analyst" },
-        status: "Completed",
+    "githubUrl": "",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "status": "Completed"
+  },
+  {
+    "id": "03",
+    "title": "Accounting and Store Management System",
+    "category": "Backend Developer & System Analyst",
+    "description": {
+      "th": "วิเคราะห์และกำหนด Requirement เพื่อสร้างแพลตฟอร์มจัดการคลังสินค้าและพนักงานที่ออกแบบมาสำหรับธุรกิจขนาดเล็กโดยเฉพาะ พัฒนาฟีเจอร์ติดตามสินค้าคงคลังบนเว็บเพจ เพื่อให้ผู้ใช้สามารถตรวจสอบระดับสต็อกและจัดการบัญชีพนักงานได้อย่างมีประสิทธิภาพ",
+      "en": "Analyzed and defined system requirements to build a custom inventory and employee management platform tailored for small businesses. Implemented a web-based inventory tracking feature, allowing users to monitor stock levels and manage employee accounts."
     },
-    {
-        id: "04",
-        title: "OhYummy",
-        category: "Web Developer",
-        description: {
-            th: "พัฒนาเว็บแอปพลิเคชันร้านอาหารที่รองรับการดูเมนู การจองโต๊ะ และระบบสั่งอาหารในตัว พัฒนาฟีเจอร์ติดตามสถานะออเดอร์แบบเรียลไทม์เพื่อยกระดับประสบการณ์ของลูกค้าและทำให้ Workflow การบริการราบรื่นขึ้น สร้างแอปพลิเคชันโดยใช้ PHP, HTML และ CSS สำหรับจัดการลอจิกฝั่งหลังบ้าน",
-            en: "Developed a restaurant web application featuring menu browsing, table reservations, and an integrated ordering system. Implemented a real-time order status tracking feature to enhance customer experience and streamline service workflow. Built the application using PHP, HTML, and CSS to manage backend logic.",
-        },
-        githubUrl: "",
-        techStack: ["PHP", "HTML", "CSS"],
-        role: { th: "Web Developer", en: "Web Developer" },
-        status: "Completed",
+    "githubUrl": "",
+    "techStack": [
+      "Python (Django)",
+      "PostgreSQL"
+    ],
+    "status": "Completed"
+  },
+  {
+    "id": "04",
+    "title": "OhYummy",
+    "category": "Web Developer",
+    "description": {
+      "th": "พัฒนาเว็บแอปพลิเคชันสำหรับร้านอาหาร รองรับการดูเมนู การจองโต๊ะ และมีระบบสั่งอาหารในตัว รวมถึงฟีเจอร์ติดตามสถานะออเดอร์แบบเรียลไทม์เพื่อยกระดับประสบการณ์ของลูกค้า และช่วยให้กระบวนการให้บริการราบรื่นยิ่งขึ้น",
+      "en": "Developed a restaurant web application featuring menu browsing, table reservations, and an integrated ordering system. Implemented a real-time order status tracking feature to enhance the customer experience and streamline service workflows."
     },
-    {
-        id: "05",
-        title: "Eldercare ",
-        category: "Backend developer",
-        description: {
-            th: "Eldercare เป็นโปรเจกต์เว็บจับคู่บริการ (ทำขึ้นเป็นคอนเซปต์) ที่ช่วยเชื่อมโยงผู้สูงอายุกับผู้ดูแลอิสระ เพื่อให้บริการต่างๆ เช่น พาไปหาหมอที่โรงพยาบาล หรือไปรับจ้างอยู่เป็นเพื่อน ตัวระบบจะแบ่งการใช้งานออกเป็น 2 ฝั่งชัดเจน คือฝั่งคนดูแลสามารถเข้ามาอัปเดตตารางคิวว่างของตัวเองเพื่อรับงานหารายได้เสริม ส่วนฝั่งลูกค้าก็สามารถเข้ามาค้นหาคนดูแล ทักไปสอบถามรายละเอียด และกดจองคิวตามวันเวลาที่สะดวก",
-            en: "Eldercare is a conceptual service-matching web platform connecting elderly individuals with freelance caregivers for essential services like hospital escorts and companionship. The system features a dual-interface architecture, allowing caregivers to manage their availability to earn extra income, while enabling users to easily search, inquire, and schedule appointments based on specific time slots.",
-        },
-        githubUrl: "",
-        techStack: ["Python (Django)", "HTML", "PostgreSQL", "Docker", "Jenkins"],
-        role: { th: "Web Developer", en: "Web Developer" },
-        status: "Completed",
+    "githubUrl": "https://github.com/amesupakorn/OhYummy",
+    "techStack": [
+      "PHP",
+      "Bootstrap",
+      "MariaDB"
+    ],
+    "status": "Completed"
+  },
+  {
+    "id": "05",
+    "title": "Eldercare",
+    "category": "Web Developer",
+    "description": {
+      "th": "Eldercare เป็นโปรเจกต์เว็บแอปพลิเคชันจับคู่บริการ (Conceptual Project) ที่ช่วยเชื่อมโยงผู้สูงอายุกับผู้ดูแลอิสระสำหรับการพาไปโรงพยาบาลหรือการอยู่เป็นเพื่อน ระบบแบ่งการใช้งานเป็น 2 ส่วนหลัก ได้แก่ ฝั่งผู้ดูแลที่สามารถอัปเดตตารางเวลาว่างเพื่อรับงาน และฝั่งลูกค้าที่สามารถค้นหาผู้ดูแล สอบถามรายละเอียด และจองคิวตามวันเวลาที่สะดวก",
+      "en": "Eldercare is a conceptual service-matching web platform connecting elderly individuals with freelance caregivers for services such as hospital escorts and companionship. The system features a dual-interface architecture: caregivers can manage their availability to offer services, while users can search, inquire, and schedule appointments based on their preferred time slots."
     },
-    {
-        id: "06",
-        title: "YouSabuy  ",
-        category: "Backend developer",
-        description: {
-            th: "YouSabuy เป็นโปรเจกต์เว็บแอปพลิเคชันสำหรับการจัดการหอพักแบบครบวงจร ระบบเริ่มต้นตั้งแต่หน้าเว็บไซต์สาธารณะที่ให้ผู้สนใจเข้ามาดูรูปตัวอย่างห้องพัก ดูผังห้อง และทำการจองห้องพักผ่านระบบออนไลน์ได้ ในส่วนของระบบจัดการภายใน แบ่งการทำงานเป็น 2 ส่วนหลัก คือ 1. ฝั่งผู้เช่า (Tenant) ที่สามารถชำระค่าเช่า แจ้งซ่อม เรียกใช้บริการแม่บ้าน และส่งข้อความร้องเรียนไปยังส่วนกลางได้ และ 2. ฝั่งผู้ดูแลหอพัก (Admin) ที่สามารถบันทึกหน่วยค่าน้ำ-ค่าไฟเพื่อคำนวณบิลค่าห้อง รวมถึงรับเรื่องร้องเรียนและแจ้งซ่อมจากผู้เช่า",
-            en: "YouSabuy is a comprehensive dormitory management web application designed to streamline end-to-end operations. The platform features a public-facing portal for room previews, floor plan viewing, and online booking. Internally, it provides a tenant dashboard for requesting maintenance, booking cleaning services, submitting complaints, and paying rent, alongside an admin interface for calculating utility bills and managing tenant requests.",
-        },
-        githubUrl: "",
-        techStack: ["PHP (Laravel)", "Blade", "CSS"],
-        role: { th: "Web Developer", en: "Web Developer" },
-        status: "Completed",
+    "githubUrl": "",
+    "techStack": [
+      "Python (Django)",
+      "PostgreSQL",
+      "Docker",
+      "Jenkins"
+    ],
+    "status": "Completed"
+  },
+  {
+    "id": "06",
+    "title": "YouSabuy",
+    "category": "Web Developer",
+    "description": {
+      "th": "YouSabuy เป็นโปรเจกต์เว็บแอปพลิเคชันสำหรับจัดการหอพักแบบครบวงจร ประกอบด้วยเว็บไซต์สาธารณะให้ผู้ที่สนใจสามารถดูรูปตัวอย่างห้องพัก ผังห้อง และทำการจองออนไลน์ได้ ส่วนระบบจัดการภายในแบ่งเป็น 2 ส่วนหลัก ได้แก่ 1. ฝั่งผู้เช่า (Tenant) สามารถชำระค่าเช่า แจ้งซ่อม เรียกใช้บริการแม่บ้าน และส่งข้อความร้องเรียน 2. ฝั่งผู้ดูแล (Admin) สามารถบันทึกหน่วยค่าน้ำ-ไฟเพื่อคำนวณบิล รวมถึงจัดการเรื่องร้องเรียนและแจ้งซ่อมจากผู้เช่า",
+      "en": "YouSabuy is a comprehensive dormitory management web application designed to streamline end-to-end operations. The platform features a public-facing portal for room previews, floor plans, and online booking. The internal system includes a tenant dashboard for requesting maintenance, booking cleaning services, submitting complaints, and paying rent, alongside an admin interface for calculating utility bills and managing tenant requests."
     },
-];
+    "githubUrl": "",
+    "techStack": [
+      "PHP (Laravel)",
+      "Blade",
+      "CSS"
+    ],
+    "status": "Completed"
+  }
+]
 
 export function getProjectById(id: string): Project | undefined {
-    return projects.find((p) => p.id === id);
+  return projects.find((p) => p.id === id);
 }

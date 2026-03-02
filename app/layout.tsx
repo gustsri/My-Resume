@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 const prompt = Prompt({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin', 'thai'],
-  variable: '--font-prompt',
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin", "thai"],
+  variable: "--font-prompt",
 });
 
 export const metadata: Metadata = {
@@ -34,9 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${prompt.variable} antialiased`}
       >
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

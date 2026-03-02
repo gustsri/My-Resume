@@ -1,10 +1,11 @@
 "use client";
-import React from 'react';
+import React from "react";
 
 const PageStyles = () => {
   return (
-    <style dangerouslySetInnerHTML={{
-      __html: `
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `
       html { scroll-behavior: smooth; }
       
       .scanlines {
@@ -98,7 +99,9 @@ const PageStyles = () => {
         .project-modal-container * { cursor: auto !important; }
         .project-modal-container button, .project-modal-container a { cursor: pointer !important; }
       }
-    `}} />
+    `,
+      }}
+    />
   );
 };
 

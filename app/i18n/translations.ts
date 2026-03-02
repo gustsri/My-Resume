@@ -15,7 +15,8 @@ export const translations = {
             headingAccent: "Sricharoen",
             bio: "Final-year Information Technology student at KMITL focusing on Software Development and System Analysis. Experienced in developing web applications from requirement analysis to full-stack implementation. Passionate about designing practical systems and database models (ERD) while continuously learning new technologies to build efficient solutions.",
             currentTeam: "Education",
-            currentTeamValue: "King Mongkut’s Institute of Technology Ladkrabang (KMITL)",
+            currentTeamValue:
+                "King Mongkut’s Institute of Technology Ladkrabang (KMITL)",
             specialization: "Bachelor of Science",
             specializationValue: "Information Technology (Software Development)",
             baseOps: "GPA",
@@ -25,7 +26,7 @@ export const translations = {
         // Skills Section
         skills: {
             sectionLabel: "Technical Specs",
-            heading: "Skills",
+            heading: "SKILLS",
             systemCheck: "System Check",
             frontend: "Frontend",
             backend: "Backend",
@@ -45,7 +46,7 @@ export const translations = {
         contact: {
             heading1: "REACH THE",
             heading2: "FINISH LINE",
-            hireMeBtn: "Hire Me Now",
+            hireMeBtn: "Contact Me",
             resumeBtn: "Get Resume",
         },
 
@@ -58,11 +59,14 @@ export const translations = {
         // Contact Page
         contactPage: {
             badge: "Communication channels online",
-            heading: "HIRE",
-            headingAccent: "ME",
+            heading: "Contact",
+            headingAccent: "Me",
             description: "Choose the most convenient channel to reach me",
             backToHome: "Back to Home",
-            github: { name: "GITHUB", description: "Source Code & Open Source Projects" },
+            github: {
+                name: "GITHUB",
+                description: "Source Code & Open Source Projects",
+            },
             linkedin: { name: "LINKEDIN", description: "LinkedIn Profile" },
             facebook: { name: "FACEBOOK", description: "Social & Community" },
             email: { name: "EMAIL", description: "Direct Communication Channel" },
@@ -71,7 +75,8 @@ export const translations = {
             resumeSection: {
                 heading: "GET MY",
                 headingAccent: "RESUME",
-                description: "Download my full resume to see all my projects, skillss, and work",
+                description:
+                    "Download my full resume to see all my projects, skillss, and work",
                 downloadBtn: "Download Resume (PDF)",
             },
         },
@@ -91,7 +96,7 @@ export const translations = {
             sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
-            bio: "ตอนนี้กำลังเรียนอยู่ชั้นปีที่ 4 คณะไอที สจล. (KMITL) เน้นความสนใจไปที่สาย Software Development และ System Analysis ครับ เคยมีประสบการณ์ทำเว็บแอปฯ แบบ Full-stack ตั้งแต่การคุย Requirement ไปจนถึงการเขียนโค้ดและใช้งานจริง ส่วนตัวชอบงานออกแบบระบบและวางโครงสร้างฐานข้อมูล (ERD) และเป็นคนที่ชอบอัปเดตเทคโนโลยีใหม่ๆ เพื่อเอามาประยุกต์สร้างระบบให้ทำงานได้ดีและตอบโจทย์ที่สุด",
+            bio: "ตอนนี้กำลังเรียนอยู่ชั้นปีที่ 4 คณะไอที สจล. (KMITL) มีความสนใจในสาย Software Development และ System Analysis ครับ เคยมีประสบการณ์ทำเว็บแอปฯ แบบ Full-stack ตั้งแต่การคุย Requirement ไปจนถึงการเขียนโค้ดและใช้งานจริง ส่วนตัวชอบงานออกแบบระบบและวางโครงสร้างฐานข้อมูล (ERD) และเป็นคนที่ชอบอัปเดตเทคโนโลยีใหม่ๆ เพื่อเอามาประยุกต์สร้างระบบให้ทำงานได้ดีและตอบโจทย์ที่สุด",
             currentTeam: "การศึกษา",
             currentTeamValue: "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)",
             specialization: "ปริญญาตรี",
@@ -103,7 +108,7 @@ export const translations = {
         // Skills Section
         skills: {
             sectionLabel: "Technical Specs",
-            heading: "Skills",
+            heading: "SKILLS",
             systemCheck: "System Check",
             frontend: "Frontend",
             backend: "Backend",
@@ -123,7 +128,7 @@ export const translations = {
         contact: {
             heading1: "REACH THE",
             heading2: "FINISH LINE",
-            hireMeBtn: "Hire Me Now",
+            hireMeBtn: "Contact Me",
             resumeBtn: "Get Resume",
         },
 
@@ -136,11 +141,14 @@ export const translations = {
         // Contact Page
         contactPage: {
             badge: "ช่องทางการสื่อสารพร้อมใช้งาน",
-            heading: "HIRE",
-            headingAccent: "ME",
+            heading: "Contact",
+            headingAccent: "Me",
             description: "เลือกช่องทางที่สะดวกที่สุดเพื่อติดต่อ",
             backToHome: "กลับหน้าหลัก",
-            github: { name: "GITHUB", description: "ซอร์สโค้ด & โปรเจกต์ Open Source" },
+            github: {
+                name: "GITHUB",
+                description: "ซอร์สโค้ด & โปรเจกต์ Open Source",
+            },
             linkedin: { name: "LINKEDIN", description: "LinkedIn Profile" },
             facebook: { name: "FACEBOOK", description: "โซเชียล & คอมมิวนิตี้" },
             email: { name: "EMAIL", description: "ช่องทางการสื่อสารโดยตรง" },
@@ -149,7 +157,8 @@ export const translations = {
             resumeSection: {
                 heading: "GET MY",
                 headingAccent: "RESUME",
-                description: "ดาวน์โหลด Resume ฉบับเต็มเพื่อดูโปรเจค ทักษะ และผลงานทั้งหมด",
+                description:
+                    "ดาวน์โหลด Resume ฉบับเต็มเพื่อดูโปรเจค ทักษะ และผลงานทั้งหมด",
                 downloadBtn: "ดาวน์โหลด Resume (PDF)",
             },
         },

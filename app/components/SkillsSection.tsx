@@ -1,8 +1,8 @@
 "use client";
-import React from 'react';
-import { Gauge } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import React from "react";
+import { Gauge } from "lucide-react";
+import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 interface SkillGroup {
     id: string;
@@ -19,13 +19,16 @@ const SkillsSection = ({ skillGroups }: SkillsSectionProps) => {
     const { t } = useLanguage();
 
     return (
-        <section id="skills" className="bg-[#040a18] py-20 sm:py-28 border-b border-white/5">
+        <section
+            id="skills"
+            className="bg-[#040a18] py-20 sm:py-28 border-b border-white/5"
+        >
             <div className="max-w-7xl mx-auto px-6">
-
                 {/* Header */}
                 <div className="mb-14 sm:mb-20">
                     <p className="text-[#ffc906] font-bold tracking-[0.2em] uppercase text-[10px] mb-3 flex items-center gap-2">
-                        <Gauge size={14} className="text-[#ffc906]" /> {t("skills.sectionLabel")}
+                        <Gauge size={14} className="text-[#ffc906]" />{" "}
+                        {t("skills.sectionLabel")}
                     </p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
                         {t("skills.heading")}
@@ -43,21 +46,18 @@ const SkillsSection = ({ skillGroups }: SkillsSectionProps) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className="group relative bg-white border border-gray-100/50 hover:border-[#ffc906]/60 transition-all duration-300 overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(4,10,24,0.06)] rounded-2xl"
+                            className="group relative bg-white border border-gray-100/50 transition-all duration-300 overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(4,10,24,0.06)] rounded-2xl"
                         >
-                            {/* Card top stripe */}
-                            <div className="h-1 w-full bg-gradient-to-r from-[#dc0000] to-[#ffc906] opacity-60 group-hover:opacity-100 transition-opacity" />
-
                             <div className="p-6">
                                 {/* Category Header */}
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="w-10 h-10 flex-shrink-0 bg-gray-50 border border-gray-100 flex items-center justify-center text-[#ffc906] group-hover:bg-[#dc0000] group-hover:text-white group-hover:border-[#dc0000] transition-all rounded-xl shadow-sm">
-                                        <span>
-                                            {group.icon}
-                                        </span>
+                                        <span>{group.icon}</span>
                                     </div>
                                     <div>
-                                        <span className="block font-mono text-[9px] text-zinc-400 uppercase tracking-widest leading-none mb-0.5">{group.id}</span>
+                                        <span className="block font-mono text-[9px] text-zinc-400 uppercase tracking-widest leading-none mb-0.5">
+                                            {group.id}
+                                        </span>
                                         <h3 className="text-base font-bold tracking-tight text-[#040a18] group-hover:text-[#dc0000] transition-colors leading-tight mt-1">
                                             {group.category}
                                         </h3>
@@ -76,16 +76,13 @@ const SkillsSection = ({ skillGroups }: SkillsSectionProps) => {
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: 0.2 + idx * 0.1 + sIdx * 0.05 }}
-                                            className="inline-block px-3 py-1 text-xs font-semibold tracking-wide bg-gray-50 border border-gray-100 text-gray-600 hover:border-[#ffc906]/60 hover:text-[#dc0000] hover:bg-[#ffc906]/10 transition-all cursor-default rounded-full"
+                                            className="inline-block px-3 py-1 text-xs font-semibold tracking-wide bg-gray-50 border border-gray-100 text-gray-600 hover:text-[#dc0000] transition-all cursor-default rounded-full"
                                         >
                                             {skill}
                                         </motion.span>
                                     ))}
                                 </div>
                             </div>
-
-                            {/* Hover glow effect */}
-                            <div className="absolute inset-0 bg-[#ffc906]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>

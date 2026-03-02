@@ -1,21 +1,28 @@
 "use client";
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { projects } from '../projects/projectData';
-import Reveal from './Reveal';
-import { useLanguage } from '../context/LanguageContext';
+import React from "react";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { projects } from "../projects/projectData";
+import Reveal from "./Reveal";
+import { useLanguage } from "../context/LanguageContext";
 
 const GarageSection = () => {
     const { locale, t } = useLanguage();
 
     return (
-        <section id="garage" className="py-20 sm:py-24 px-6 bg-[#f8f9fa] overflow-hidden">
+        <section
+            id="garage"
+            className="py-20 sm:py-24 px-6 bg-[#f8f9fa] overflow-hidden"
+        >
             <div className="max-w-7xl mx-auto">
                 <Reveal>
                     <div className="mb-12 sm:mb-16">
-                        <p className="text-[#dc0000] font-bold tracking-widest uppercase text-xs mb-3">{t("garage.sectionLabel") || "PROJECTS"}</p>
-                        <h2 className="text-4xl sm:text-5xl font-black uppercase text-[#040a18]">{t("garage.heading") || "Latest Works"}</h2>
+                        <p className="text-[#dc0000] font-bold tracking-widest uppercase text-xs mb-3">
+                            {t("garage.sectionLabel") || "PROJECTS"}
+                        </p>
+                        <h2 className="text-4xl sm:text-5xl font-black uppercase text-[#040a18]">
+                            {t("garage.heading") || "Latest Works"}
+                        </h2>
                     </div>
                 </Reveal>
 
@@ -42,7 +49,12 @@ const GarageSection = () => {
 
                                 <div className="flex flex-wrap gap-2 pt-1">
                                     {project.techStack.map((tech, i) => (
-                                        <span key={i} className="text-[10px] sm:text-xs bg-gray-50 border border-gray-100 text-gray-600 px-3 py-1.5 rounded-full font-semibold">{tech}</span>
+                                        <span
+                                            key={i}
+                                            className="text-[10px] sm:text-xs bg-gray-50 border border-gray-100 text-gray-600 px-3 py-1.5 rounded-full font-semibold"
+                                        >
+                                            {tech}
+                                        </span>
                                     ))}
                                 </div>
 
@@ -54,9 +66,17 @@ const GarageSection = () => {
                             </div>
 
                             <div className="pt-6 mt-auto border-t border-gray-50">
-                                <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-[#040a18] hover:text-[#dc0000] transition-colors group/link">
+                                <a
+                                    href={project.githubUrl || "#"}
+                                    target={project.githubUrl ? "_blank" : undefined}
+                                    rel={project.githubUrl ? "noopener noreferrer" : undefined}
+                                    className="inline-flex items-center gap-2 text-sm font-bold text-[#040a18] hover:text-[#dc0000] transition-colors group/link"
+                                >
                                     {t("garage.viewProject") || "View project"}
-                                    <ArrowUpRight size={16} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                                    <ArrowUpRight
+                                        size={16}
+                                        className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
+                                    />
                                 </a>
                             </div>
                         </motion.div>

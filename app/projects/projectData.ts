@@ -190,7 +190,7 @@ export const projects: Project[] = [
   {
     "id": "01",
     "title": "Budget Preparation Support System",
-    "category": "Full-stack Developer & System Analyst",
+    "category": "Full-stack Developer",
     "description": {
       "th": "พัฒนาระบบบนเว็บเพื่อทดแทนกระบวนการจัดทำงบประมาณแบบแมนนวล ช่วยจัดการบันทึกรายรับและรายจ่าย รวมถึงวางแผนและออกแบบโครงสร้างระบบจากกระบวนการทำงานเดิมเพื่อเพิ่มประสิทธิภาพการทำงานให้ดียิ่งขึ้น ระบบมีแดชบอร์ดแสดงผลแบบเรียลไทม์สำหรับการติดตามงบประมาณ พร้อมทั้งมีการออกแบบ Database Schema และ ERD Model เพื่อการจัดเก็บข้อมูลอย่างเป็นระบบและรองรับการออกรายงานทางการเงิน",
       "en": "Transformed a manual budgeting process into a web-based system for managing income and expenses. Planned and designed the system architecture based on existing workflows to enhance operational efficiency. The system features a real-time dashboard for improved budget tracking, along with custom-designed database schemas and ERD models to ensure systematic data storage and support financial reporting."
@@ -215,7 +215,7 @@ export const projects: Project[] = [
       "th": "ออกแบบและพัฒนาแพลตฟอร์มค้นหาเกม ประกอบด้วยหน้ารายละเอียดเกม ระบบจัดการบัญชีผู้ใช้ และระบบคอมเมนต์แบบไดนามิก มีการเชื่อมต่อ External API เพื่อดึงและแสดงข้อมูลเกมอย่างครบถ้วน ทำให้ผู้ใช้ได้รับข้อมูลที่อัปเดตอยู่เสมอ",
       "en": "Designed a game browsing platform featuring detailed game pages, user account management, and a dynamic commenting system. Integrated external APIs to fetch and display comprehensive game data, providing users with up-to-date information."
     },
-    "githubUrl": "",
+    "githubUrl": "https://github.com/gustsri/game-vault",
     "techStack": [
       "Next.js",
       "TypeScript",
@@ -229,12 +229,12 @@ export const projects: Project[] = [
   {
     "id": "03",
     "title": "Accounting and Store Management System",
-    "category": "Backend Developer & System Analyst",
+    "category": "Backend Developer",
     "description": {
       "th": "วิเคราะห์และกำหนด Requirement เพื่อสร้างแพลตฟอร์มจัดการคลังสินค้าและพนักงานที่ออกแบบมาสำหรับธุรกิจขนาดเล็กโดยเฉพาะ พัฒนาฟีเจอร์ติดตามสินค้าคงคลังบนเว็บเพจ เพื่อให้ผู้ใช้สามารถตรวจสอบระดับสต็อกและจัดการบัญชีพนักงานได้อย่างมีประสิทธิภาพ",
       "en": "Analyzed and defined system requirements to build a custom inventory and employee management platform tailored for small businesses. Implemented a web-based inventory tracking feature, allowing users to monitor stock levels and manage employee accounts."
     },
-    "githubUrl": "",
+    "githubUrl": "https://github.com/gustsri/ServerSide_project-main",
     "techStack": [
       "Python (Django)",
       "PostgreSQL"
@@ -249,7 +249,7 @@ export const projects: Project[] = [
       "th": "พัฒนาเว็บแอปพลิเคชันสำหรับร้านอาหาร รองรับการดูเมนู การจองโต๊ะ และมีระบบสั่งอาหารในตัว รวมถึงฟีเจอร์ติดตามสถานะออเดอร์แบบเรียลไทม์เพื่อยกระดับประสบการณ์ของลูกค้า และช่วยให้กระบวนการให้บริการราบรื่นยิ่งขึ้น",
       "en": "Developed a restaurant web application featuring menu browsing, table reservations, and an integrated ordering system. Implemented a real-time order status tracking feature to enhance the customer experience and streamline service workflows."
     },
-    "githubUrl": "https://github.com/amesupakorn/OhYummy",
+    "githubUrl": "https://github.com/gustsri/OhYummy",
     "techStack": [
       "PHP",
       "Bootstrap",

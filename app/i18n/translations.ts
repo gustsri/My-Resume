@@ -13,14 +13,14 @@ export const translations = {
             sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
-            bio: "Final-year Information Technology student at KMITL focusing on Software Development and System Analysis. Experienced in developing web applications from requirement analysis to full-stack implementation. Passionate about designing practical systems and database models (ERD) while continuously learning new technologies to build efficient solutions.",
+            bio: "IT graduate from KMITL with hands-on experience building full-stack web systems end-to-end — from ERD design and backend APIs to deployment. Led development of a budget management platform built for faculty administrators, using Next.js and PostgreSQL. Comfortable owning both frontend and backend layers, and looking to bring that full-cycle ownership to a collaborative development team.",
             currentTeam: "Education",
             currentTeamValue:
                 "King Mongkut’s Institute of Technology Ladkrabang (KMITL)",
             specialization: "Bachelor of Science",
             specializationValue: "Information Technology (Software Development)",
             baseOps: "GPA",
-            baseOpsValue: "GPA: 2.93 | Expected Graduation: 2026",
+            baseOpsValue: "GPA: 2.96 | Expected Graduation: 2026",
         },
 
         // Skills Section
@@ -32,7 +32,7 @@ export const translations = {
             backend: "Backend",
             database: "Database",
             systems: "Systems Analysis",
-            tools: "Tools",
+            tools: "Tools & DevOps",
         },
 
         // Garage Section
@@ -96,13 +96,13 @@ export const translations = {
             sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
-            bio: "ตอนนี้กำลังเรียนอยู่ชั้นปีที่ 4 คณะไอที สจล. (KMITL) มีความสนใจในสาย Software Development และ System Analysis ครับ เคยมีประสบการณ์ทำเว็บแอปฯ แบบ Full-stack ตั้งแต่การคุย Requirement ไปจนถึงการเขียนโค้ดและใช้งานจริง ส่วนตัวชอบงานออกแบบระบบและวางโครงสร้างฐานข้อมูล (ERD) และเป็นคนที่ชอบอัปเดตเทคโนโลยีใหม่ๆ เพื่อเอามาประยุกต์สร้างระบบให้ทำงานได้ดีและตอบโจทย์ที่สุด",
+            bio: "สำเร็จการศึกษาสาขาเทคโนโลยีสารสนเทศจาก สจล. (KMITL) มีประสบการณ์ลงมือทำจริงในการพัฒนาเว็บระบบแบบ full-stack ครบวงจร(end-to-end) ตั้งแต่การออกแบบ ERD และ backend API ไปจนถึงการขึ้นระบบใช้งาน (deployment) พัฒนาแพลตฟอร์มบริหารจัดการงบประมาณสำหรับผู้บริหารคณะด้วย Next.js และ PostgreSQL สามารถดูแลรับผิดชอบได้ทั้งส่วน frontend และ backend และพร้อมจะนำความเข้าใจในการพัฒนาระบบแบบครบวงจรนี้เข้ามาร่วมทำงานและเติบโตไปกับทีมพัฒนาซอฟต์แวร์ที่เน้นการทำงานร่วมกัน",
             currentTeam: "การศึกษา",
             currentTeamValue: "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)",
             specialization: "ปริญญาตรี",
             specializationValue: "เทคโนโลยีสารสนเทศ (การพัฒนาซอฟต์แวร์)",
             baseOps: "เกรดเฉลี่ย",
-            baseOpsValue: "GPA: 2.93 | คาดว่าจะสำเร็จการศึกษา: 2569",
+            baseOpsValue: "GPA: 2.96 | คาดว่าจะสำเร็จการศึกษา: 2569",
         },
 
         // Skills Section
@@ -114,7 +114,7 @@ export const translations = {
             backend: "Backend",
             database: "Database",
             systems: "Systems Analysis",
-            tools: "Tools",
+            tools: "Tools & DevOps",
         },
 
         // Garage Section

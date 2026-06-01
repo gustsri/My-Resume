@@ -61,7 +61,7 @@ const ProfileSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="space-y-4">
                 <Reveal delay={0.4}>
-                  <p className="text-gray-600 font-medium text-base sm:text-lg leading-relaxed">
+                  <p className="text-gray-600 font-medium text-base sm:text-lg leading-relaxed text-justify">
                     {t("profile.bio")}
                   </p>
                 </Reveal>

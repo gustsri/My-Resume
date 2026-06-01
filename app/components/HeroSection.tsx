@@ -89,7 +89,7 @@ const HeroSection = ({ scrollTo }: HeroSectionProps) => {
               Position
             </span>
             <span className="text-base sm:text-2xl font-black tracking-tight uppercase text-white">
-              System Analyst
+              Software Developer
             </span>
           </div>
         </motion.div>

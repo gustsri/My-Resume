@@ -13,7 +13,7 @@ export const translations = {
             sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
-            bio: "IT graduate from KMITL with hands-on experience building full-stack web systems end-to-end — from ERD design and backend APIs to deployment. Led development of a budget management platform built for faculty administrators, using Next.js and PostgreSQL. Comfortable owning both frontend and backend layers, and looking to bring that full-cycle ownership to a collaborative development team.",
+            bio: "Recent IT graduate from KMITL and an ambitious Full-Stack Developer / Software Developer with hands-on experience building web systems end-to-end. Proficient in modern technologies including TypeScript, Python, Next.js, and PostgreSQL. Proven track record of digitizing complex business processes, notably the development of the Budget Preparation Support System. Passionate about leveraging AI-assisted tools to write clean, efficient code and deliver scalable, impactful software solutions.",
             currentTeam: "Education",
             currentTeamValue:
                 "King Mongkut’s Institute of Technology Ladkrabang (KMITL)",
@@ -96,7 +96,7 @@ export const translations = {
             sectionLabel: "Profile & Bio",
             heading: "Kanitphong",
             headingAccent: "Sricharoen",
-            bio: "สำเร็จการศึกษาสาขาเทคโนโลยีสารสนเทศจาก สจล. (KMITL) มีประสบการณ์ลงมือทำจริงในการพัฒนาเว็บระบบแบบ full-stack ครบวงจร(end-to-end) ตั้งแต่การออกแบบ ERD และ backend API ไปจนถึงการขึ้นระบบใช้งาน (deployment) พัฒนาแพลตฟอร์มบริหารจัดการงบประมาณสำหรับผู้บริหารคณะด้วย Next.js และ PostgreSQL สามารถดูแลรับผิดชอบได้ทั้งส่วน frontend และ backend และพร้อมจะนำความเข้าใจในการพัฒนาระบบแบบครบวงจรนี้เข้ามาร่วมทำงานและเติบโตไปกับทีมพัฒนาซอฟต์แวร์ที่เน้นการทำงานร่วมกัน",
+            bio: "ผมเป็นบัณฑิตจบใหม่จากสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.) สาขาวิชาการพัฒนาซอฟต์แวร์ มีความถนัดและสนใจในการพัฒนาเว็บแบบครบวงจร (Full-Stack) ตั้งแต่ฝั่ง Frontend จนถึง Backend และฐานข้อมูล เทคโนโลยีหลักที่ใช้ได้อย่างคล่องตัวได้แก่ TypeScript, Python, Next.js และ PostgreSQL ผ่านประสบการณ์จริงในการสร้างระบบสนับสนุนการเตรียมงบประมาณให้คณะ IT ผมถนัดกับการนำ AI tools ต่างๆมาช่วยเขียนโค้ดที่สะอาดและมีประสิทธิภาพ และอยากร่วมสร้างซอฟต์แวร์ที่มีผลกระทบในเชิงบวกในองค์กรจริงครับ",
             currentTeam: "การศึกษา",
             currentTeamValue: "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)",
             specialization: "ปริญญาตรี",

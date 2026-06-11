@@ -51,13 +51,13 @@ const App = () => {
       id: "SYS_01",
       category: t("skills.frontend"),
       icon: <Monitor size={20} />,
-      items: ["HTML", "CSS", "TypeScript", "React", "Next.js", "Tailwind CSS"],
+      items: ["HTML/CSS", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "React"],
     },
     {
       id: "SYS_02",
       category: t("skills.backend"),
       icon: <Server size={20} />,
-      items: ["Python", "Django", "PHP", "REST API", "Prisma", "Odoo"],
+      items: ["Python", "PHP", "Django", "Prisma", "Odoo", "RESTful APIs (JSON/XML)"],
     },
     {
       id: "SYS_03",
@@ -70,12 +70,13 @@ const App = () => {
       category: t("skills.tools"),
       icon: <Wrench size={20} />,
       items: [
-        "Git / GitHub",
-        "Docker",
-        "Postman",
         "AWS (EC2, S3)",
+        "Docker",
+        "Git / GitHub",
+        "Postman",
         "DBeaver",
         "pgAdmin",
+        "AI-Assisted Development (Gemini, Claude, Antigravity IDE)",
       ],
     },
   ];

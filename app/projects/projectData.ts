@@ -265,7 +265,7 @@ export const projects: Project[] = [
       "th": "Eldercare เป็นโปรเจกต์เว็บแอปพลิเคชันจับคู่บริการ (Conceptual Project) ที่ช่วยเชื่อมโยงผู้สูงอายุกับผู้ดูแลอิสระสำหรับการพาไปโรงพยาบาลหรือการอยู่เป็นเพื่อน ระบบแบ่งการใช้งานเป็น 2 ส่วนหลัก ได้แก่ ฝั่งผู้ดูแลที่สามารถอัปเดตตารางเวลาว่างเพื่อรับงาน และฝั่งลูกค้าที่สามารถค้นหาผู้ดูแล สอบถามรายละเอียด และจองคิวตามวันเวลาที่สะดวก",
       "en": "Eldercare is a conceptual service-matching web platform connecting elderly individuals with freelance caregivers for services such as hospital escorts and companionship. The system features a dual-interface architecture: caregivers can manage their availability to offer services, while users can search, inquire, and schedule appointments based on their preferred time slots."
     },
-    "githubUrl": "",
+    "githubUrl": "https://github.com/CosmoGuy112/Eldercare.git",
     "techStack": [
       "Python (Django)",
       "PostgreSQL",
@@ -282,7 +282,7 @@ export const projects: Project[] = [
       "th": "YouSabuy เป็นโปรเจกต์เว็บแอปพลิเคชันสำหรับจัดการหอพักแบบครบวงจร ประกอบด้วยเว็บไซต์สาธารณะให้ผู้ที่สนใจสามารถดูรูปตัวอย่างห้องพัก ผังห้อง และทำการจองออนไลน์ได้ ส่วนระบบจัดการภายในแบ่งเป็น 2 ส่วนหลัก ได้แก่ 1. ฝั่งผู้เช่า (Tenant) สามารถชำระค่าเช่า แจ้งซ่อม เรียกใช้บริการแม่บ้าน และส่งข้อความร้องเรียน 2. ฝั่งผู้ดูแล (Admin) สามารถบันทึกหน่วยค่าน้ำ-ไฟเพื่อคำนวณบิล รวมถึงจัดการเรื่องร้องเรียนและแจ้งซ่อมจากผู้เช่า",
       "en": "YouSabuy is a comprehensive dormitory management web application designed to streamline end-to-end operations. The platform features a public-facing portal for room previews, floor plans, and online booking. The internal system includes a tenant dashboard for requesting maintenance, booking cleaning services, submitting complaints, and paying rent, alongside an admin interface for calculating utility bills and managing tenant requests."
     },
-    "githubUrl": "",
+    "githubUrl": "https://github.com/NitruZx/YouSabuy.git",
     "techStack": [
       "PHP (Laravel)",
       "Blade",

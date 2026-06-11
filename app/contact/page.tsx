@@ -282,7 +282,7 @@ export default function ContactPage() {
               {t("contactPage.resumeSection.description")}
             </p>
             <a
-              href="/resume/Kanitphong_Resume_FullstackDev.pdf"
+              href="/resume/Kanitphong_Sricharoen_Resume.pdf"
               download
               className="inline-flex items-center gap-3 bg-[#dc0000] text-white px-10 py-5 text-base sm:text-lg font-black italic uppercase tracking-widest hover:bg-[#ffc906] hover:text-[#040a18] transition-all transform -skew-x-12 shadow-2xl active:scale-95"
             >
